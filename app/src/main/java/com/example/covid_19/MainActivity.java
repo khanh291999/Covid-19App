@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,6 +15,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.covid_19.HelperClasses.MethodAdapter;
+import com.example.covid_19.HelperClasses.MethodHelperClass;
 import com.leo.simplearcloader.SimpleArcLoader;
 
 import org.eazegraph.lib.charts.PieChart;
@@ -22,6 +25,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,26 +36,18 @@ public class MainActivity extends AppCompatActivity {
     SimpleArcLoader simpleArcLoader;
     ScrollView scrollView;
     PieChart pieChart;
+    Button btnTrack;
+
+    RecyclerView methodRecycler;
+    RecyclerView.Adapter methodAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tvCases = findViewById(R.id.tvCases);
-        tvRecovered = findViewById(R.id.tvRecovered);
-        tvCritical = findViewById(R.id.tvCritical);
-        tvActive = findViewById(R.id.tvActive);
-        tvTodayCases = findViewById(R.id.tvTodayCases);
-        tvTotalDeaths = findViewById(R.id.tvTotalDeaths);
-        tvTodayDeaths = findViewById(R.id.tvTodayDeaths);
-        tvAffectedCountries = findViewById(R.id.tvAffectedCountries);
-
-        simpleArcLoader = findViewById(R.id.loader);
-        scrollView = findViewById(R.id.scrollStats);
-        pieChart = findViewById(R.id.piechart);
-
-
+        Hooks();
+        methodRecycler();
         fetchData();
 
     }
@@ -117,7 +116,42 @@ public class MainActivity extends AppCompatActivity {
 
     public void goTrackCountries(View view) {
 
-        startActivity(new Intent(getApplicationContext(),AffectedCountries.class));
+        //startActivity(new Intent(getApplicationContext(),AffectedCountries.class));
+        Intent intent = new Intent(MainActivity.this, AffectedCountries.class);
+        startActivity(intent);
+    }
 
+    private void methodRecycler(){
+        methodRecycler.setHasFixedSize(true);
+        methodRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+
+        ArrayList<MethodHelperClass> methods = new ArrayList<>();
+
+        methods.add(new MethodHelperClass(R.drawable.aed, "Self Check", "aaaaa aaaaaaaa aaaaaa aaaaaaa aaaaaa aaaaaaa"));
+        methods.add(new MethodHelperClass(R.drawable.pillbottle, "Doctor advice", "aaaaa aaaaaaaa aaaaaa aaaaaaa aaaaaa aaaaaaa"));
+        methods.add(new MethodHelperClass(R.drawable.syring, "Shots", "aaaaa aaaaaaaa aaaaaa aaaaaaa aaaaaa aaaaaaa"));
+
+
+        methodAdapter = new MethodAdapter(methods);
+        methodRecycler.setAdapter(methodAdapter);
+    }
+
+    private void Hooks(){
+        tvCases = findViewById(R.id.tvCases);
+        tvRecovered = findViewById(R.id.tvRecovered);
+        tvCritical = findViewById(R.id.tvCritical);
+        tvActive = findViewById(R.id.tvActive);
+        tvTodayCases = findViewById(R.id.tvTodayCases);
+        tvTotalDeaths = findViewById(R.id.tvTotalDeaths);
+        tvTodayDeaths = findViewById(R.id.tvTodayDeaths);
+        tvAffectedCountries = findViewById(R.id.tvAffectedCountries);
+
+        simpleArcLoader = findViewById(R.id.loader);
+        scrollView = findViewById(R.id.scrollStats);
+        pieChart = findViewById(R.id.piechart);
+        btnTrack = findViewById(R.id.btnTrack);
+
+        //methods
+        methodRecycler = findViewById(R.id.method_recycler);
     }
 }

@@ -18,7 +18,8 @@
         android:hint="Search"
         android:drawablePadding="15dp"
         android:background="@drawable/edittext_shadow"
-        android:drawableLeft="@drawable/ic_search_black_24dp"/>
+        android:drawableLeft="@drawable/ic_search_black_24dp"
+        android:drawableStart="@drawable/ic_search_black_24dp" />
 
     <ListView
         android:layout_width="match_parent"

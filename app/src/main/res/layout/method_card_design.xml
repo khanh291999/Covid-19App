@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="8dp"
+    android:layout_margin="10dp">
+
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:padding="10dp"
+        >
+
+        <ImageView
+            android:id="@+id/method_image"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/aed" />
+
+        <TextView
+            android:id="@+id/method_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/method_image"
+            android:fontFamily="@font/baloo"
+            android:text="Self check"
+            android:textSize="20dp" />
+
+        <RatingBar
+            android:id="@+id/method_rating"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/method_title"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/method_image"
+            android:rating="4" />
+
+        <TextView
+            android:id="@+id/method_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="sadf asdfasdf sadfdsfsa sdfasdf asdfsd vcw"
+            android:layout_below="@id/method_rating"
+            android:layout_toRightOf="@id/method_image"
+            android:padding="10dp"/>
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

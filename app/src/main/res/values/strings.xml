@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Covid-19</string>
     <string name="save_yourself_save_everyone" />
+    <string name="self_check">Self check</string>
 </resources>
