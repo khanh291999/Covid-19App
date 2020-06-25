@@ -9,4 +9,15 @@
 
         <item name="android:windowContentTransitions">true</item>
     </style>
+    
+<!--    Menu style-->
+    <style name="navigationTheme">
+        
+<!--        Color of text and icon when select-->
+        <item name="colorPrimary">@color/colorAccent</item>
+<!--        Background color when selected-->
+        <item name="colorControlHighlight">#262628</item>
+        
+    </style>
+    
 </resources>

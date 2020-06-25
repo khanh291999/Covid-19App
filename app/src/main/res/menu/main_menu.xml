@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:title="HOME"
+            android:icon="@drawable/ic_home" />
+
+        <item
+            android:id="@+id/nav_track"
+            android:title="Track Countries"
+            android:icon="@drawable/ic_location_on"/>
+
+        <item
+            android:id="@+id/nav_shopping"
+            android:title="Buy Product"
+            android:icon="@drawable/shopping_cart"/>
+
+        <item
+            android:id="@+id/nav_method"
+            android:title="Healthcare"
+            android:icon="@drawable/ic_local_hospital_black"/>
+    </group>
+
+    <item android:title="Favourite">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_favourite_method"
+                    android:title="Favourite Method"
+                    android:icon="@drawable/ic_favorite" />
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Profile">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_login"
+                    android:title="Login"
+                    android:icon="@drawable/ic_login" />
+
+                <item
+                    android:id="@+id/nav_profile"
+                    android:title="Profile"
+                    android:icon="@drawable/ic_person_black"/>
+
+                <item
+                    android:id="@+id/nav_logout"
+                    android:title="Logout"
+                    android:icon="@drawable/ic_logout"/>
+            </group>
+        </menu>
+    </item>
+
+
+</menu>
