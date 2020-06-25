@@ -3,6 +3,7 @@ package com.example.covid_19;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     //Variable
     static final float END_SCALE = 0.7f;
 
-    //Attribute
+    //Others
     TextView tvCases, tvRecovered, tvCritical, tvActive, tvTodayCases, tvTotalDeaths, tvTodayDeaths, tvAffectedCountries;
     SimpleArcLoader simpleArcLoader;
     ScrollView scrollView;
@@ -183,10 +184,42 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     //Navigation Drawer function
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+        //set of chose menu item
+        switch (menuItem.getItemId()){
+            case R.id.nav_home:
+                break;
+            case R.id.nav_track:
+                goTrackCountries();
+                break;
+            case R.id.nav_shopping:
+                Toast.makeText(this,"shopping",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_method:
+                Toast.makeText(this,"Healthcare",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_favourite_method:
+                Toast.makeText(this,"Favourite Method",Toast.LENGTH_SHORT).show();
+                break;
+        }
+
+        drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
 
+    private void goTrackCountries() {
+        Intent intent = new Intent(MainActivity.this, AffectedCountries.class);
+        startActivity(intent);
+    }
+
     private void navigationDrawer() {
+
+        //Hide or show item
+        Menu menu = navigationView.getMenu();
+        menu.findItem(R.id.nav_logout).setVisible(false);
+        menu.findItem(R.id.nav_profile).setVisible(false);
+
+
         navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.nav_home);
