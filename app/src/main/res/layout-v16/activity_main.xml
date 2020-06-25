@@ -5,33 +5,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_white"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="85dp"
         android:padding="20dp">
 
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/menu"
-            android:layout_centerVertical="true"/>
+            android:layout_centerVertical="true"
+            android:src="@drawable/menu" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_person_black"
-            android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:drawableStart="@drawable/ic_person_black"
+            android:drawableLeft="@drawable/ic_person_black"
             android:text="Guest"
-            android:textSize="24sp"
-            android:drawableLeft="@drawable/ic_person_black" />
+            android:textSize="24sp" />
 
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/pageTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -39,11 +40,48 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:fontFamily="banger"
+            android:fontFamily="@font/baloo"
             android:text="Dashboard"
-            android:textSize="24sp" />
+            android:textSize="50sp" />
 
     </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="57dp"
+                android:layout_height="59dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/dashboard_card1"
+                android:elevation="8dp">
+
+                <ImageView
+                    android:layout_width="42dp"
+                    android:layout_height="40dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_location_on" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Track Country"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -54,101 +92,113 @@
             android:orientation="vertical">
 
             //graph
+
             <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewGraph"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="20dp"
-                app:cardElevation="10dp"
-                android:id="@+id/cardViewGraph"
-                app:cardCornerRadius="5dp">
+                android:layout_marginRight="20dp"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
-                    android:weightSum="2"
-                    >
+                    android:weightSum="2">
+
                     <org.eazegraph.lib.charts.PieChart
                         android:id="@+id/piechart"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:padding="6dp"
-                        android:layout_weight="1"
-                        android:layout_marginTop="15dp"
                         android:layout_marginLeft="15dp"
+                        android:layout_marginTop="15dp"
                         android:layout_marginBottom="15dp"
-                        />
+                        android:layout_weight="1"
+                        android:padding="6dp" />
+
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
                         android:layout_marginLeft="20dp"
-                        android:orientation="vertical"
-                        android:gravity="center_vertical">
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="15dp"
                             android:gravity="center_vertical">
+
                             <View
                                 android:layout_width="15dp"
                                 android:layout_height="match_parent"
-                                android:background="@color/cases"/>
+                                android:background="@color/cases" />
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Total Cases"
-                                android:paddingLeft="10dp"/>
+                                android:paddingLeft="10dp"
+                                android:text="Total Cases" />
 
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="15dp"
-                            android:gravity="center_vertical"
-                            android:layout_marginTop="5dp">
+                            android:layout_marginTop="5dp"
+                            android:gravity="center_vertical">
+
                             <View
                                 android:layout_width="15dp"
                                 android:layout_height="match_parent"
-                                android:background="@color/recovered"/>
+                                android:background="@color/recovered" />
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Recovered"
-                                android:paddingLeft="10dp"/>
+                                android:paddingLeft="10dp"
+                                android:text="Recovered" />
 
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="15dp"
-                            android:gravity="center_vertical"
-                            android:layout_marginTop="5dp">
+                            android:layout_marginTop="5dp"
+                            android:gravity="center_vertical">
+
                             <View
                                 android:layout_width="15dp"
                                 android:layout_height="match_parent"
-                                android:background="@color/deaths"/>
+                                android:background="@color/deaths" />
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Deaths"
-                                android:paddingLeft="10dp"/>
+                                android:paddingLeft="10dp"
+                                android:text="Deaths" />
 
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="15dp"
-                            android:gravity="center_vertical"
-                            android:layout_marginTop="5dp">
+                            android:layout_marginTop="5dp"
+                            android:gravity="center_vertical">
+
                             <View
                                 android:layout_width="15dp"
                                 android:layout_height="match_parent"
-                                android:background="@color/active"/>
+                                android:background="@color/active" />
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Active"
-                                android:paddingLeft="10dp"/>
+                                android:paddingLeft="10dp"
+                                android:text="Active" />
 
                         </LinearLayout>
                     </LinearLayout>
@@ -156,41 +206,38 @@
                 </LinearLayout>
 
 
-
             </androidx.cardview.widget.CardView>
 
             //global state
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView_globalstate"
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
-                android:layout_below="@+id/cardViewGraph"
                 android:layout_above="@+id/btnTrack"
+                android:layout_below="@+id/cardViewGraph"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="20dp"
-                app:cardElevation="10dp"
+                android:layout_marginRight="20dp"
                 app:cardCornerRadius="5dp"
-                >
+                app:cardElevation="10dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    >
+                    android:layout_height="match_parent">
+
                     <com.leo.simplearcloader.SimpleArcLoader
-                        android:visibility="visible"
                         android:id="@+id/loader"
-                        android:layout_centerInParent="true"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        app:arc_style="simple_arc"
-                        >
-                    </com.leo.simplearcloader.SimpleArcLoader>
+                        android:layout_centerInParent="true"
+                        android:visibility="visible"
+                        app:arc_style="simple_arc"></com.leo.simplearcloader.SimpleArcLoader>
 
                     <ScrollView
+                        android:id="@+id/scrollStats"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:id="@+id/scrollStats"
                         android:visibility="gone">
 
                         <LinearLayout
@@ -201,27 +248,27 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
                                 android:text="global stats"
                                 android:textAllCaps="true"
                                 android:textSize="28sp"
-                                android:textStyle="bold"
-                                android:layout_marginLeft="25dp"
-                                android:layout_marginTop="20dp"/>
+                                android:textStyle="bold" />
 
                             <View
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:background="@color/color_two"
                                 android:layout_marginLeft="20dp"
+                                android:layout_marginTop="5dp"
                                 android:layout_marginRight="20dp"
-                                android:layout_marginTop="5dp"/>
+                                android:background="@color/color_two" />
 
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginRight="25dp"
                                 android:layout_marginLeft="25dp"
                                 android:layout_marginTop="10dp"
+                                android:layout_marginRight="25dp"
                                 android:layout_marginBottom="10dp">
 
                                 <TextView
@@ -229,35 +276,37 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-light"
                                     android:text="Cases"
-                                    android:textSize="18sp"/>
+                                    android:textSize="18sp" />
+
                                 <TextView
+                                    android:id="@+id/tvCases"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="0"
-                                    android:id="@+id/tvCases"
-                                    android:textAlignment="textEnd"
-                                    android:textSize="18sp"
-
-                                    android:textColor="@color/color_one"
-                                    android:textStyle="bold"
-                                    android:fontFamily="sans-serif-light"
                                     android:layout_alignParentRight="true"
-                                    android:gravity="end" />
+                                    android:fontFamily="sans-serif-light"
+                                    android:gravity="end"
+
+                                    android:text="0"
+                                    android:textAlignment="textEnd"
+                                    android:textColor="@color/color_one"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
 
                             </RelativeLayout>
+
                             <View
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:background="@color/color_two"
                                 android:layout_marginLeft="20dp"
                                 android:layout_marginRight="20dp"
-                                />
+                                android:background="@color/color_two" />
+
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginRight="25dp"
                                 android:layout_marginLeft="25dp"
                                 android:layout_marginTop="10dp"
+                                android:layout_marginRight="25dp"
                                 android:layout_marginBottom="10dp">
 
                                 <TextView
@@ -265,34 +314,36 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-light"
                                     android:text="Recovored"
-                                    android:textSize="18sp"/>
+                                    android:textSize="18sp" />
+
                                 <TextView
+                                    android:id="@+id/tvRecovered"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="0"
-                                    android:id="@+id/tvRecovered"
-                                    android:textAlignment="textEnd"
-                                    android:textSize="18sp"
-                                    android:textColor="@color/color_one"
-                                    android:textStyle="bold"
-                                    android:fontFamily="sans-serif-light"
                                     android:layout_alignParentRight="true"
-                                    android:gravity="end" />
+                                    android:fontFamily="sans-serif-light"
+                                    android:gravity="end"
+                                    android:text="0"
+                                    android:textAlignment="textEnd"
+                                    android:textColor="@color/color_one"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
 
                             </RelativeLayout>
+
                             <View
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:background="@color/color_two"
                                 android:layout_marginLeft="20dp"
                                 android:layout_marginRight="20dp"
-                                />
+                                android:background="@color/color_two" />
+
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginRight="25dp"
                                 android:layout_marginLeft="25dp"
                                 android:layout_marginTop="10dp"
+                                android:layout_marginRight="25dp"
                                 android:layout_marginBottom="10dp">
 
                                 <TextView
@@ -300,35 +351,37 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-light"
                                     android:text="Critical"
-                                    android:textSize="18sp"/>
+                                    android:textSize="18sp" />
+
                                 <TextView
+                                    android:id="@+id/tvCritical"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="0"
-                                    android:id="@+id/tvCritical"
-                                    android:textAlignment="textEnd"
-                                    android:textSize="18sp"
-
-                                    android:textColor="@color/color_one"
-                                    android:textStyle="bold"
-                                    android:fontFamily="sans-serif-light"
                                     android:layout_alignParentRight="true"
-                                    android:gravity="end" />
+                                    android:fontFamily="sans-serif-light"
+                                    android:gravity="end"
+
+                                    android:text="0"
+                                    android:textAlignment="textEnd"
+                                    android:textColor="@color/color_one"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
 
                             </RelativeLayout>
+
                             <View
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:background="@color/color_two"
                                 android:layout_marginLeft="20dp"
                                 android:layout_marginRight="20dp"
-                                />
+                                android:background="@color/color_two" />
+
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginRight="25dp"
                                 android:layout_marginLeft="25dp"
                                 android:layout_marginTop="10dp"
+                                android:layout_marginRight="25dp"
                                 android:layout_marginBottom="10dp">
 
                                 <TextView
@@ -336,35 +389,37 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-light"
                                     android:text="Active"
-                                    android:textSize="18sp"/>
+                                    android:textSize="18sp" />
+
                                 <TextView
+                                    android:id="@+id/tvActive"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="0"
-                                    android:id="@+id/tvActive"
-                                    android:textAlignment="textEnd"
-                                    android:textSize="18sp"
-
-                                    android:textColor="@color/color_one"
-                                    android:textStyle="bold"
-                                    android:fontFamily="sans-serif-light"
                                     android:layout_alignParentRight="true"
-                                    android:gravity="end" />
+                                    android:fontFamily="sans-serif-light"
+                                    android:gravity="end"
+
+                                    android:text="0"
+                                    android:textAlignment="textEnd"
+                                    android:textColor="@color/color_one"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
 
                             </RelativeLayout>
+
                             <View
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:background="@color/color_two"
                                 android:layout_marginLeft="20dp"
                                 android:layout_marginRight="20dp"
-                                />
+                                android:background="@color/color_two" />
+
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginRight="25dp"
                                 android:layout_marginLeft="25dp"
                                 android:layout_marginTop="10dp"
+                                android:layout_marginRight="25dp"
                                 android:layout_marginBottom="10dp">
 
                                 <TextView
@@ -372,35 +427,37 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-light"
                                     android:text="Today Cases"
-                                    android:textSize="18sp"/>
+                                    android:textSize="18sp" />
+
                                 <TextView
+                                    android:id="@+id/tvTodayCases"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="0"
-                                    android:id="@+id/tvTodayCases"
-                                    android:textAlignment="textEnd"
-                                    android:textSize="18sp"
-
-                                    android:textColor="@color/color_one"
-                                    android:textStyle="bold"
-                                    android:fontFamily="sans-serif-light"
                                     android:layout_alignParentRight="true"
-                                    android:gravity="end" />
+                                    android:fontFamily="sans-serif-light"
+                                    android:gravity="end"
+
+                                    android:text="0"
+                                    android:textAlignment="textEnd"
+                                    android:textColor="@color/color_one"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
 
                             </RelativeLayout>
+
                             <View
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:background="@color/color_two"
                                 android:layout_marginLeft="20dp"
                                 android:layout_marginRight="20dp"
-                                />
+                                android:background="@color/color_two" />
+
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginRight="25dp"
                                 android:layout_marginLeft="25dp"
                                 android:layout_marginTop="10dp"
+                                android:layout_marginRight="25dp"
                                 android:layout_marginBottom="10dp">
 
                                 <TextView
@@ -408,35 +465,37 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-light"
                                     android:text="Total Deaths"
-                                    android:textSize="18sp"/>
+                                    android:textSize="18sp" />
+
                                 <TextView
+                                    android:id="@+id/tvTotalDeaths"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="0"
-                                    android:id="@+id/tvTotalDeaths"
-                                    android:textAlignment="textEnd"
-                                    android:textSize="18sp"
-
-                                    android:textColor="@color/color_one"
-                                    android:textStyle="bold"
-                                    android:fontFamily="sans-serif-light"
                                     android:layout_alignParentRight="true"
-                                    android:gravity="end" />
+                                    android:fontFamily="sans-serif-light"
+                                    android:gravity="end"
+
+                                    android:text="0"
+                                    android:textAlignment="textEnd"
+                                    android:textColor="@color/color_one"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
 
                             </RelativeLayout>
+
                             <View
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:background="@color/color_two"
                                 android:layout_marginLeft="20dp"
                                 android:layout_marginRight="20dp"
-                                />
+                                android:background="@color/color_two" />
+
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginRight="25dp"
                                 android:layout_marginLeft="25dp"
                                 android:layout_marginTop="10dp"
+                                android:layout_marginRight="25dp"
                                 android:layout_marginBottom="10dp">
 
                                 <TextView
@@ -444,35 +503,37 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-light"
                                     android:text="Today Deaths"
-                                    android:textSize="18sp"/>
+                                    android:textSize="18sp" />
+
                                 <TextView
+                                    android:id="@+id/tvTodayDeaths"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="0"
-                                    android:id="@+id/tvTodayDeaths"
-                                    android:textAlignment="textEnd"
-                                    android:textSize="18sp"
-
-                                    android:textColor="@color/color_one"
-                                    android:textStyle="bold"
-                                    android:fontFamily="sans-serif-light"
                                     android:layout_alignParentRight="true"
-                                    android:gravity="end" />
+                                    android:fontFamily="sans-serif-light"
+                                    android:gravity="end"
+
+                                    android:text="0"
+                                    android:textAlignment="textEnd"
+                                    android:textColor="@color/color_one"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
 
                             </RelativeLayout>
+
                             <View
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:background="@color/color_two"
                                 android:layout_marginLeft="20dp"
                                 android:layout_marginRight="20dp"
-                                />
+                                android:background="@color/color_two" />
+
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginRight="25dp"
                                 android:layout_marginLeft="25dp"
                                 android:layout_marginTop="10dp"
+                                android:layout_marginRight="25dp"
                                 android:layout_marginBottom="10dp">
 
                                 <TextView
@@ -480,28 +541,29 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-light"
                                     android:text="Affected Countries"
-                                    android:textSize="18sp"/>
+                                    android:textSize="18sp" />
+
                                 <TextView
+                                    android:id="@+id/tvAffectedCountries"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="0"
-                                    android:id="@+id/tvAffectedCountries"
-                                    android:textAlignment="textEnd"
-                                    android:textSize="18sp"
-                                    android:textColor="@color/color_one"
-                                    android:textStyle="bold"
-                                    android:fontFamily="sans-serif-light"
                                     android:layout_alignParentRight="true"
-                                    android:gravity="end" />
+                                    android:fontFamily="sans-serif-light"
+                                    android:gravity="end"
+                                    android:text="0"
+                                    android:textAlignment="textEnd"
+                                    android:textColor="@color/color_one"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
 
                             </RelativeLayout>
+
                             <View
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:background="@color/color_two"
                                 android:layout_marginLeft="20dp"
                                 android:layout_marginRight="20dp"
-                                />
+                                android:background="@color/color_two" />
 
                         </LinearLayout>
 
@@ -512,16 +574,17 @@
             </androidx.cardview.widget.CardView>
 
             //Healthcare
+
             <LinearLayout
                 android:id="@+id/healthcare_method"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_above="@+id/btnTrack"
+                android:layout_below="@+id/cardView_globalstate"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:padding="20dp"
-                android:layout_below="@+id/cardView_globalstate"
-                android:layout_above="@+id/btnTrack">
+                android:orientation="vertical"
+                android:padding="20dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -531,23 +594,22 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Healthcare"
+                        android:textAllCaps="true"
                         android:textColor="#000000"
-                        android:textSize="20sp"
-                        android:textAllCaps="true"/>
+                        android:textSize="20sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="View All"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
-                        />
+                        android:text="View All" />
                 </RelativeLayout>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/method_recycler"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"/>
+                    android:layout_height="150dp" />
 
             </LinearLayout>
 
