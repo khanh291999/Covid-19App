@@ -84,7 +84,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="20dp"
-                        android:onClick="goTrackCountries"
                         android:orientation="vertical">
 
                         <RelativeLayout
@@ -93,7 +92,8 @@
                             android:layout_gravity="center_horizontal"
                             android:layout_margin="10dp"
                             android:background="@drawable/dashboard_card1"
-                            android:elevation="8dp">
+                            android:elevation="8dp"
+                            android:onClick="goTrackCountries">
 
                             <ImageView
                                 android:layout_width="42dp"
@@ -123,7 +123,8 @@
                             android:layout_gravity="center_horizontal"
                             android:layout_margin="10dp"
                             android:background="@drawable/dashboard_card2"
-                            android:elevation="8dp">
+                            android:elevation="8dp"
+                            android:onClick="goShopping">
 
                             <ImageView
                                 android:layout_width="42dp"
@@ -283,7 +284,7 @@
                             android:layout_height="60dp"
                             android:layout_centerInParent="true"
                             android:visibility="visible"
-                            app:arc_style="simple_arc"></com.leo.simplearcloader.SimpleArcLoader>
+                            app:arc_style="simple_arc"/>
 
                         <ScrollView
                             android:id="@+id/scrollStats"
@@ -666,6 +667,7 @@
 
                 <Button
                     android:id="@+id/btnTrack"
+                    android:visibility="invisible"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"

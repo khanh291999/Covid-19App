@@ -1,5 +1,6 @@
 package com.example.covid_19;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -31,6 +32,7 @@ import org.json.JSONObject;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.menu.MenuView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -49,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     ScrollView scrollView;
     PieChart pieChart;
     Button btnTrack;
+    MenuView.ItemView productSelected;
 
     RecyclerView methodRecycler;
     RecyclerView.Adapter methodAdapter;
@@ -134,10 +137,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
+    //set to OnClick tool
     public void goTrackCountries(View view) {
-
-        //startActivity(new Intent(getApplicationContext(),AffectedCountries.class));
         Intent intent = new Intent(MainActivity.this, AffectedCountries.class);
+        startActivity(intent);
+    }
+
+    public void goShopping(View view) {
+        Intent intent = new Intent(MainActivity.this, Products.class);
         startActivity(intent);
     }
 
@@ -150,7 +157,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         methods.add(new MethodHelperClass(R.drawable.aed, "Self Check", "aaaaa aaaaaaaa aaaaaa aaaaaaa aaaaaa aaaaaaa"));
         methods.add(new MethodHelperClass(R.drawable.pillbottle, "Doctor advice", "aaaaa aaaaaaaa aaaaaa aaaaaaa aaaaaa aaaaaaa"));
         methods.add(new MethodHelperClass(R.drawable.syring, "Shots", "aaaaa aaaaaaaa aaaaaa aaaaaaa aaaaaa aaaaaaa"));
-
 
         methodAdapter = new MethodAdapter(methods);
         methodRecycler.setAdapter(methodAdapter);
@@ -179,12 +185,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView = findViewById(R.id.navigation_view);
         menuicon = findViewById(R.id.menu_icon);
         contentView = findViewById(R.id.content);
+        productSelected = findViewById((R.id.nav_shopping));
     }
 
     //Navigation Drawer function
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-
         //set of chose menu item
         switch (menuItem.getItemId()){
             case R.id.nav_home:
@@ -193,7 +199,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 goTrackCountries();
                 break;
             case R.id.nav_shopping:
-                Toast.makeText(this,"shopping",Toast.LENGTH_SHORT).show();
+                goShopping();
                 break;
             case R.id.nav_method:
                 Toast.makeText(this,"Healthcare",Toast.LENGTH_SHORT).show();
@@ -201,15 +207,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_favourite_method:
                 Toast.makeText(this,"Favourite Method",Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.nav_login:
+                goLogin();
+                break;
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    private void goTrackCountries() {
-        Intent intent = new Intent(MainActivity.this, AffectedCountries.class);
-        startActivity(intent);
     }
 
     private void navigationDrawer() {
@@ -219,7 +223,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         menu.findItem(R.id.nav_logout).setVisible(false);
         menu.findItem(R.id.nav_profile).setVisible(false);
 
-
+        menu.getItem(5).setChecked(true);
         navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.nav_home);
@@ -231,7 +235,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 if (drawerLayout.isDrawerVisible(GravityCompat.START))
                     drawerLayout.closeDrawer((GravityCompat.START));
                 else drawerLayout.openDrawer((GravityCompat.START));
-
             }
         });
 
@@ -269,4 +272,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else
             super.onBackPressed();
     }
+
+    //set of chose menu item
+    private void goShopping() {
+        Intent intent = new Intent(MainActivity.this, Products.class);
+        startActivity(intent);
+    }
+
+    private void goTrackCountries() {
+        Intent intent = new Intent(MainActivity.this, AffectedCountries.class);
+        startActivity(intent);
+    }
+
+    private void goLogin() {
+        Intent intent = new Intent(MainActivity.this, Login.class);
+        startActivity(intent);
+    }
+
 }
