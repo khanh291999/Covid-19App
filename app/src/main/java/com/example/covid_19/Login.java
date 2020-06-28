@@ -4,12 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -19,11 +22,13 @@ public class Login extends AppCompatActivity {
     TextView title;
     Button btnLogin, btnResetPassword, callSignUp;
     TextInputLayout username, password;
+    DatabaseHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        db = new DatabaseHelper(this);
 
         Hooks();
 
@@ -58,5 +63,31 @@ public class Login extends AppCompatActivity {
         password = findViewById(R.id.password);
         btnLogin = findViewById(R.id.btnLogin);
         callSignUp = findViewById(R.id.btnCallSignUp);
+        loginUser();
+    }
+
+    public void loginUser () {
+        btnLogin.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String usernamez = username.getEditText().getText().toString().trim();
+                        String passwordz = password.getEditText().getText().toString().trim();
+                        Cursor user = db.validateUser(usernamez, passwordz);
+                        if (!(user.moveToFirst()) || user.getCount() == 0) {
+                            SharedPreferences sp = getSharedPreferences("LoggedUser", MODE_PRIVATE);
+                            SharedPreferences.Editor Ed = sp.edit();
+                            Ed.putString("Username",usernamez );
+                            Ed.commit();
+                            // get user
+                            //SharedPreferences sp1 = this.getSharedPreferences("LoggedUser", MODE_PRIVATE);
+                            //String username = sp1.getString("Username", null);
+                            Toast.makeText(Login.this,"Wrong Username or Password", Toast.LENGTH_LONG).show();
+                        } else {
+                            Toast.makeText(Login.this,"Login Successfully", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                }
+        );
     }
 }
