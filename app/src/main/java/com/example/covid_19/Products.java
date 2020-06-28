@@ -91,6 +91,12 @@ public class Products extends AppCompatActivity implements NavigationView.OnNavi
             case R.id.nav_favourite_method:
                 Toast.makeText(this,"Favourite Method",Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.nav_login:
+                goLogin();
+                break;
+            case R.id.nav_profile:
+                goProfile();
+                break;
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
@@ -161,6 +167,16 @@ public class Products extends AppCompatActivity implements NavigationView.OnNavi
 
     private void goHome() {
         Intent intent = new Intent(Products.this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    private void goLogin() {
+        Intent intent = new Intent(Products.this, Login.class);
+        startActivity(intent);
+    }
+
+    private void goProfile() {
+        Intent intent = new Intent(Products.this, UserProfile.class);
         startActivity(intent);
     }
 

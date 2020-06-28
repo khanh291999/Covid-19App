@@ -210,6 +210,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_login:
                 goLogin();
                 break;
+            case R.id.nav_profile:
+                goProfile();
+                break;
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
@@ -289,4 +292,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         startActivity(intent);
     }
 
+    private void goProfile() {
+        Intent intent = new Intent(MainActivity.this, UserProfile.class);
+        startActivity(intent);
+    }
 }
