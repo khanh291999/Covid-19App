@@ -1,10 +1,11 @@
-package com.example.covid_19.HelperClasses;
+package com.example.covid_19;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "Covid.db";
@@ -39,17 +40,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_4,email);
         contentValues.put(COL_5,password);
         contentValues.put(COL_6,address);
-
-        long result = db.insert(USER_TABLE,null ,contentValues);
-        if(result == -1)
+        Cursor user = this.checkUsername(username, email);
+        if (!(user.moveToFirst()) || user.getCount() == 0) {
+            long result = db.insert(USER_TABLE,null ,contentValues);
+            if(result == -1)
+                return false;
+            else
+                return true;
+        } else {
             return false;
-        else
-            return true;
+        }
+
     }
 
-    public Cursor getAllUser() {
+    public Cursor checkUsername(String username, String email) {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from "+USER_TABLE,null);
+        Cursor res = db.rawQuery("select * from " + USER_TABLE + " where USERNAME = ? or EMAIL = ?",new String[] {username, email});
+        return res;
+    }
+
+    public Cursor validateUser(String username, String password) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from " + USER_TABLE + " where USERNAME = ? and PASSWORD = ?",new String[] {username, password});
         return res;
     }
 //

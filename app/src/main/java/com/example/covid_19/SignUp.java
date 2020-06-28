@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -19,10 +20,12 @@ public class SignUp extends AppCompatActivity {
     TextView title;
     Button btncallSignIn, btnSignUp;
     TextInputLayout Regusername, Regpassword, Regemail, Regaddress;
+    DatabaseHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        db = new DatabaseHelper(this);
         setContentView(R.layout.activity_sign_up);
 
         Hooks();
@@ -60,5 +63,27 @@ public class SignUp extends AppCompatActivity {
         Regaddress = findViewById(R.id.address);
         btncallSignIn = findViewById(R.id.btnReturnSignin);
         btnSignUp = findViewById(R.id.btnRegSignUp);
+        registerUser();
+    }
+
+    public void registerUser () {
+        btnSignUp.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String username = Regusername.getEditText().getText().toString().trim();
+                        String password = Regpassword.getEditText().getText().toString().trim();
+                        String email = Regemail.getEditText().getText().toString().trim();
+                        String address = Regaddress.getEditText().getText().toString().trim();
+                        boolean isSuccess = db.insertUser(username, password, email, address);
+                        if(isSuccess) {
+                            Toast.makeText(SignUp.this,"Signup Successfully", Toast.LENGTH_LONG).show();
+                            btncallSignIn.performClick();
+                        } else {
+                            Toast.makeText(SignUp.this,"Username or email already existed", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                }
+        );
     }
 }
