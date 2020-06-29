@@ -35,6 +35,7 @@ public class MethodAdapter extends RecyclerView.Adapter<MethodAdapter.MethodView
         MethodHelperClass methodHelperClass = methods.get(position);
 
         holder.image.setImageResource(methodHelperClass.getImage());
+        holder.heart.setImageResource(methodHelperClass.getImage());
         holder.title.setText(methodHelperClass.getTitle());
         holder.desc.setText(methodHelperClass.getDescription());
     }
@@ -46,13 +47,14 @@ public class MethodAdapter extends RecyclerView.Adapter<MethodAdapter.MethodView
 
     public static class MethodViewHolder extends RecyclerView.ViewHolder{
 
-        ImageView image;
+        ImageView image,heart;
         TextView title, desc;
 
         public MethodViewHolder(@NonNull View itemView) {
             super(itemView);
 
             //Hooks
+            heart = itemView.findViewById(R.id.method_heart);
             image = itemView.findViewById(R.id.method_image);
             title = itemView.findViewById(R.id.method_title);
             desc = itemView.findViewById(R.id.method_desc);

@@ -18,20 +18,17 @@ import android.widget.Toast;
 
 import com.example.covid_19.HelperClasses.MethodAdapter;
 import com.example.covid_19.HelperClasses.MethodHelperClass;
-import com.example.covid_19.HelperClasses.ProductAdapter;
-import com.example.covid_19.HelperClasses.ProductHelperClass;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 
-
-public class Products extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class Methods extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     //Variable
     static final float END_SCALE = 0.7f;
 
-    RecyclerView productRecycler;
-    RecyclerView.Adapter productAdapter;
+    RecyclerView methodRecycler;
+    RecyclerView.Adapter methodAdapter;
     LinearLayout contentView;
 
     //Drawer Menu
@@ -42,16 +39,33 @@ public class Products extends AppCompatActivity implements NavigationView.OnNavi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_products);
+        setContentView(R.layout.activity_methods);
 
         Hooks();
-        productRecycler();
+        methodRecycler();
+
+        //Navigation Drawer
         navigationDrawer();
     }
 
+    private void methodRecycler() {
+        methodRecycler.setHasFixedSize(true);
+        methodRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+
+        ArrayList<MethodHelperClass> methods = new ArrayList<>();
+
+        methods.add(new MethodHelperClass(R.drawable.aed, "Self Check", "aaaaa aaaaaaaa aaaaaa aaaaaaa aaaaaa aaaaaaa"));
+        methods.add(new MethodHelperClass(R.drawable.pillbottle, "Doctor advice", "aaaaa aaaaaaaa aaaaaa aaaaaaa aaaaaa aaaaaaa"));
+        methods.add(new MethodHelperClass(R.drawable.syring, "Shots", "aaaaa aaaaaaaa aaaaaa aaaaaaa aaaaaa aaaaaaa"));
+
+        methodAdapter = new MethodAdapter(methods);
+        methodRecycler.setAdapter(methodAdapter);
+    }
+
     private void Hooks() {
-        //Recycler
-        productRecycler = findViewById(R.id.product_recycler);
+        //methods
+        methodRecycler = findViewById(R.id.main_methods_recycler);
+
         //menu hook
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
@@ -59,34 +73,21 @@ public class Products extends AppCompatActivity implements NavigationView.OnNavi
         contentView = findViewById(R.id.content);
     }
 
-    private void productRecycler() {
-        productRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-
-        ArrayList<ProductHelperClass> products = new ArrayList<>();
-
-        products.add(new ProductHelperClass(R.drawable.face_mask, "Face Mask", "aaaaa aaaaaaaa aaaaaa aaaaaaa aaaaaa aaaaaaa"));
-        products.add(new ProductHelperClass(R.drawable.latex_disposable_gloves_100pcs, "Latex Gloves 100pcs", "aaaaa aaaaaaaa aaaaaa aaaaaaa aaaaaa aaaaaaa"));
-        products.add(new ProductHelperClass(R.drawable.panadol_120v, "Panadol 120pcs", "aaaaa aaaaaaaa aaaaaa aaaaaaa aaaaaa aaaaaaa"));
-
-        productAdapter = new ProductAdapter(products);
-        productRecycler.setAdapter(productAdapter);
-    }
-
     //Navigation Drawer function
-
+    @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         //set of chose menu item
         switch (menuItem.getItemId()){
-            case R.id.nav_shopping:
-                break;
             case R.id.nav_home:
                 goHome();
                 break;
             case R.id.nav_track:
                 goTrackCountries();
                 break;
+            case R.id.nav_shopping:
+                goShopping();
+                break;
             case R.id.nav_method:
-                goMethods();
                 break;
             case R.id.nav_favourite_method:
                 Toast.makeText(this,"Favourite Method",Toast.LENGTH_SHORT).show();
@@ -104,12 +105,13 @@ public class Products extends AppCompatActivity implements NavigationView.OnNavi
     }
 
     private void navigationDrawer() {
+
         //Hide or show item
         Menu menu = navigationView.getMenu();
         menu.findItem(R.id.nav_logout).setVisible(false);
         menu.findItem(R.id.nav_profile).setVisible(false);
 
-        navigationView.setCheckedItem(R.id.nav_shopping);
+        menu.getItem(5).setChecked(true);
         navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.nav_home);
@@ -121,7 +123,6 @@ public class Products extends AppCompatActivity implements NavigationView.OnNavi
                 if (drawerLayout.isDrawerVisible(GravityCompat.START))
                     drawerLayout.closeDrawer((GravityCompat.START));
                 else drawerLayout.openDrawer((GravityCompat.START));
-
             }
         });
 
@@ -129,6 +130,7 @@ public class Products extends AppCompatActivity implements NavigationView.OnNavi
     }
 
     private void animatedNavigationDrawer() {
+
         drawerLayout.setScrimColor(getResources().getColor(R.color.colorAccent));
 
         drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
@@ -148,9 +150,9 @@ public class Products extends AppCompatActivity implements NavigationView.OnNavi
                 contentView.setTranslationX(xTranslation);
             }
         });
+
     }
 
-    @Override
     public void onBackPressed() {
 
         if (drawerLayout.isDrawerVisible(GravityCompat.START)) {
@@ -160,29 +162,30 @@ public class Products extends AppCompatActivity implements NavigationView.OnNavi
     }
 
     //set of chose menu item
-    private void goTrackCountries() {
-        Intent intent = new Intent(Products.this, AffectedCountries.class);
+    private void goShopping() {
+        Intent intent = new Intent(Methods.this, Products.class);
         startActivity(intent);
     }
 
-    private void goHome() {
-        Intent intent = new Intent(Products.this, MainActivity.class);
+    private void goTrackCountries() {
+        Intent intent = new Intent(Methods.this, AffectedCountries.class);
         startActivity(intent);
     }
 
     private void goLogin() {
-        Intent intent = new Intent(Products.this, Login.class);
+        Intent intent = new Intent(Methods.this, Login.class);
         startActivity(intent);
     }
 
     private void goProfile() {
-        Intent intent = new Intent(Products.this, UserProfile.class);
+        Intent intent = new Intent(Methods.this, UserProfile.class);
         startActivity(intent);
     }
 
-    private void goMethods() {
-        Intent intent = new Intent(Products.this, Methods.class);
+    private void goHome() {
+        Intent intent = new Intent(Methods.this, MainActivity.class);
         startActivity(intent);
     }
+
 
 }
