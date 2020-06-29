@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     SimpleArcLoader simpleArcLoader;
     ScrollView scrollView;
     PieChart pieChart;
-    Button btnTrack;
+    Button btnTrack, btnViewAllMethod;
     MenuView.ItemView productSelected;
 
     RecyclerView methodRecycler;
@@ -148,6 +148,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         startActivity(intent);
     }
 
+    public void goMethods(View view) {
+        Intent intent = new Intent(MainActivity.this, Methods.class);
+        startActivity(intent);
+    }
+
     private void methodRecycler() {
         methodRecycler.setHasFixedSize(true);
         methodRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
@@ -176,6 +181,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         scrollView = findViewById(R.id.scrollStats);
         pieChart = findViewById(R.id.piechart);
         btnTrack = findViewById(R.id.btnTrack);
+        btnViewAllMethod = findViewById(R.id.btnViewAllMethod);
 
         //methods
         methodRecycler = findViewById(R.id.method_recycler);
@@ -202,7 +208,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 goShopping();
                 break;
             case R.id.nav_method:
-                Toast.makeText(this,"Healthcare",Toast.LENGTH_SHORT).show();
+                goMethods();
                 break;
             case R.id.nav_favourite_method:
                 Toast.makeText(this,"Favourite Method",Toast.LENGTH_SHORT).show();
@@ -294,6 +300,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void goProfile() {
         Intent intent = new Intent(MainActivity.this, UserProfile.class);
+        startActivity(intent);
+    }
+
+    private void goMethods() {
+        Intent intent = new Intent(MainActivity.this, Methods.class);
         startActivity(intent);
     }
 }

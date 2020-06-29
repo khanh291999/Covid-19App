@@ -2,20 +2,20 @@
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:id="@+id/drawer_layout">
+    tools:context=".MainActivity">
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_gravity="start"
         android:background="@color/color_white"
         android:theme="@style/navigationTheme"
-        android:layout_gravity="start"
         app:headerLayout="@layout/menu_header"
-        app:menu="@menu/main_menu"/>
+        app:menu="@menu/main_menu" />
 
 
     <LinearLayout
@@ -69,8 +69,8 @@
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:fontFamily="@font/baloo"
-                        android:textColor="#000000"
                         android:text="Dashboard"
+                        android:textColor="#000000"
                         android:textSize="50sp" />
 
                 </RelativeLayout>
@@ -284,7 +284,7 @@
                             android:layout_height="60dp"
                             android:layout_centerInParent="true"
                             android:visibility="visible"
-                            app:arc_style="simple_arc"/>
+                            app:arc_style="simple_arc" />
 
                         <ScrollView
                             android:id="@+id/scrollStats"
@@ -643,19 +643,24 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Healthcare"
                             android:fontFamily="@font/baloo"
+                            android:text="Healthcare"
                             android:textAllCaps="true"
                             android:textColor="#000000"
                             android:textSize="32sp" />
 
-                        <TextView
+                        <Button
+                            android:id="@+id/btnViewAllMethod"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
                             android:layout_centerVertical="true"
-                            android:textSize="17sp"
-                            android:text="View All" />
+                            android:background="#00000000"
+                            android:onClick="goMethods"
+                            android:text="View All"
+                            android:textAllCaps="false"
+                            android:textColor="#A3A2A2"
+                            android:textSize="17sp" />
                     </RelativeLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
@@ -667,7 +672,6 @@
 
                 <Button
                     android:id="@+id/btnTrack"
-                    android:visibility="invisible"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
@@ -676,7 +680,8 @@
                     android:padding="5dp"
                     android:text="Track countries"
                     android:textColor="@android:color/white"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:visibility="invisible" />
             </LinearLayout>
 
         </ScrollView>
