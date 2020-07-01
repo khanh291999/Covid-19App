@@ -111,10 +111,9 @@ public class Methods extends AppCompatActivity implements NavigationView.OnNavig
         menu.findItem(R.id.nav_logout).setVisible(false);
         menu.findItem(R.id.nav_profile).setVisible(false);
 
-        menu.getItem(5).setChecked(true);
         navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setCheckedItem(R.id.nav_home);
+        navigationView.setCheckedItem(R.id.nav_method);
 
         //set menu icon
         menuicon.setOnClickListener(new View.OnClickListener() {

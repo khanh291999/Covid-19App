@@ -232,7 +232,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         menu.findItem(R.id.nav_logout).setVisible(false);
         menu.findItem(R.id.nav_profile).setVisible(false);
 
-        menu.getItem(5).setChecked(true);
         navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.nav_home);

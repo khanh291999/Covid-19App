@@ -109,10 +109,9 @@ public class Products extends AppCompatActivity implements NavigationView.OnNavi
         menu.findItem(R.id.nav_logout).setVisible(false);
         menu.findItem(R.id.nav_profile).setVisible(false);
 
-        navigationView.setCheckedItem(R.id.nav_shopping);
         navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setCheckedItem(R.id.nav_home);
+        navigationView.setCheckedItem(R.id.nav_shopping);
 
         //set menu icon
         menuicon.setOnClickListener(new View.OnClickListener() {

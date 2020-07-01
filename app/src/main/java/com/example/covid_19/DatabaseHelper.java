@@ -53,12 +53,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+    //Check available user (username, email)
     public Cursor checkUsername(String username, String email) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("select * from " + USER_TABLE + " where USERNAME = ? or EMAIL = ?",new String[] {username, email});
         return res;
     }
 
+    //Check available user (username, password)
     public Cursor validateUser(String username, String password) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("select * from " + USER_TABLE + " where USERNAME = ? and PASSWORD = ?",new String[] {username, password});

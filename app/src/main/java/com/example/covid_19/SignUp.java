@@ -77,7 +77,7 @@ public class SignUp extends AppCompatActivity {
                         String address = Regaddress.getEditText().getText().toString().trim();
                         boolean isSuccess = db.insertUser(username, password, email, address);
                         if(isSuccess) {
-                            Toast.makeText(SignUp.this,"Signup Successfully", Toast.LENGTH_LONG).show();
+                            Toast.makeText(SignUp.this,"SignUp Successfully", Toast.LENGTH_LONG).show();
                             btncallSignIn.performClick();
                         } else {
                             Toast.makeText(SignUp.this,"Username or email already existed", Toast.LENGTH_LONG).show();

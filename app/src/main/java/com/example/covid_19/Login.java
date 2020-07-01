@@ -3,6 +3,7 @@ package com.example.covid_19;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActivityOptions;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -28,6 +29,7 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        //database
         db = new DatabaseHelper(this);
 
         Hooks();
@@ -78,7 +80,7 @@ public class Login extends AppCompatActivity {
                             SharedPreferences sp = getSharedPreferences("LoggedUser", MODE_PRIVATE);
                             SharedPreferences.Editor Ed = sp.edit();
                             Ed.putString("Username",usernamez );
-                            Ed.commit();
+                            Ed.apply();
                             // get user
                             //SharedPreferences sp1 = this.getSharedPreferences("LoggedUser", MODE_PRIVATE);
                             //String username = sp1.getString("Username", null);
