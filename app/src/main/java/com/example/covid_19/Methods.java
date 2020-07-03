@@ -12,8 +12,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.covid_19.HelperClasses.MethodAdapter;
@@ -27,9 +29,7 @@ public class Methods extends AppCompatActivity implements NavigationView.OnNavig
     //Variable
     static final float END_SCALE = 0.7f;
 
-    RecyclerView methodRecycler;
-    RecyclerView.Adapter methodAdapter;
-    LinearLayout contentView;
+    RelativeLayout contentView;
 
     //Drawer Menu
     DrawerLayout drawerLayout;
@@ -39,33 +39,16 @@ public class Methods extends AppCompatActivity implements NavigationView.OnNavig
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_methods);
 
         Hooks();
-        methodRecycler();
 
         //Navigation Drawer
         navigationDrawer();
     }
 
-    private void methodRecycler() {
-        methodRecycler.setHasFixedSize(true);
-        methodRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-
-        ArrayList<MethodHelperClass> methods = new ArrayList<>();
-
-        methods.add(new MethodHelperClass(R.drawable.aed, "Self Check", "aaaaa aaaaaaaa aaaaaa aaaaaaa aaaaaa aaaaaaa"));
-        methods.add(new MethodHelperClass(R.drawable.pillbottle, "Doctor advice", "aaaaa aaaaaaaa aaaaaa aaaaaaa aaaaaa aaaaaaa"));
-        methods.add(new MethodHelperClass(R.drawable.syring, "Shots", "aaaaa aaaaaaaa aaaaaa aaaaaaa aaaaaa aaaaaaa"));
-
-        methodAdapter = new MethodAdapter(methods);
-        methodRecycler.setAdapter(methodAdapter);
-    }
-
     private void Hooks() {
-        //methods
-        methodRecycler = findViewById(R.id.main_methods_recycler);
-
         //menu hook
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
@@ -164,26 +147,31 @@ public class Methods extends AppCompatActivity implements NavigationView.OnNavig
     private void goShopping() {
         Intent intent = new Intent(Methods.this, Products.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_in_right);
     }
 
     private void goTrackCountries() {
         Intent intent = new Intent(Methods.this, AffectedCountries.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_in_right);
     }
 
     private void goLogin() {
         Intent intent = new Intent(Methods.this, Login.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_in_right);
     }
 
     private void goProfile() {
         Intent intent = new Intent(Methods.this, UserProfile.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_in_right);
     }
 
     private void goHome() {
         Intent intent = new Intent(Methods.this, MainActivity.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_in_right);
     }
 
 

@@ -7,9 +7,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,7 +40,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -46,16 +51,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     static final float END_SCALE = 0.7f;
 
     //Others
-    TextView tvCases, tvRecovered, tvCritical, tvActive, tvTodayCases, tvTotalDeaths, tvTodayDeaths, tvAffectedCountries;
-    SimpleArcLoader simpleArcLoader;
+    TextView tvCases, tvRecovered, tvTotalDeaths, tvTodayCases , tvTodayDeaths, tvTodayRecovered;
     ScrollView scrollView;
-    PieChart pieChart;
-    Button btnTrack, btnViewAllMethod;
+    Button btnTrack;
     MenuView.ItemView productSelected;
+    TextView tvDate1,tvDate2;
 
-    RecyclerView methodRecycler;
-    RecyclerView.Adapter methodAdapter;
-    LinearLayout contentView;
+    RelativeLayout contentView;
 
     //Drawer Menu
     DrawerLayout drawerLayout;
@@ -66,11 +68,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
         Hooks();
-        methodRecycler();
         fetchData();
+        getDate();
 
         //Navigation Drawer
         navigationDrawer();
@@ -80,8 +83,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void fetchData() {
 
         String url = "https://corona.lmao.ninja/v2/all/";
-
-        simpleArcLoader.start();
 
         StringRequest request = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
@@ -93,29 +94,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                             tvCases.setText(jsonObject.getString("cases"));
                             tvRecovered.setText(jsonObject.getString("recovered"));
-                            tvCritical.setText(jsonObject.getString("critical"));
-                            tvActive.setText(jsonObject.getString("active"));
-                            tvTodayCases.setText(jsonObject.getString("todayCases"));
                             tvTotalDeaths.setText(jsonObject.getString("deaths"));
+                            tvTodayCases.setText(jsonObject.getString("todayCases"));
                             tvTodayDeaths.setText(jsonObject.getString("todayDeaths"));
-                            tvAffectedCountries.setText(jsonObject.getString("affectedCountries"));
-
-
-                            pieChart.addPieSlice(new PieModel("Cases", Integer.parseInt(tvCases.getText().toString()), Color.parseColor("#FFA726")));
-                            pieChart.addPieSlice(new PieModel("Recoverd", Integer.parseInt(tvRecovered.getText().toString()), Color.parseColor("#66BB6A")));
-                            pieChart.addPieSlice(new PieModel("Deaths", Integer.parseInt(tvTotalDeaths.getText().toString()), Color.parseColor("#EF5350")));
-                            pieChart.addPieSlice(new PieModel("Active", Integer.parseInt(tvActive.getText().toString()), Color.parseColor("#29B6F6")));
-                            pieChart.startAnimation();
-
-                            simpleArcLoader.stop();
-                            simpleArcLoader.setVisibility(View.GONE);
-                            scrollView.setVisibility(View.VISIBLE);
-
+                            tvTodayRecovered.setText(jsonObject.getString("todayRecovered"));
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            simpleArcLoader.stop();
-                            simpleArcLoader.setVisibility(View.GONE);
                             scrollView.setVisibility(View.VISIBLE);
                         }
 
@@ -124,8 +109,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                simpleArcLoader.stop();
-                simpleArcLoader.setVisibility(View.GONE);
                 scrollView.setVisibility(View.VISIBLE);
                 Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
             }
@@ -153,38 +136,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         startActivity(intent);
     }
 
-    private void methodRecycler() {
-        methodRecycler.setHasFixedSize(true);
-        methodRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-
-        ArrayList<MethodHelperClass> methods = new ArrayList<>();
-
-        methods.add(new MethodHelperClass(R.drawable.aed, "Self Check", "aaaaa aaaaaaaa aaaaaa aaaaaaa aaaaaa aaaaaaa"));
-        methods.add(new MethodHelperClass(R.drawable.pillbottle, "Doctor advice", "aaaaa aaaaaaaa aaaaaa aaaaaaa aaaaaa aaaaaaa"));
-        methods.add(new MethodHelperClass(R.drawable.syring, "Shots", "aaaaa aaaaaaaa aaaaaa aaaaaaa aaaaaa aaaaaaa"));
-
-        methodAdapter = new MethodAdapter(methods);
-        methodRecycler.setAdapter(methodAdapter);
-    }
-
     private void Hooks() {
         tvCases = findViewById(R.id.tvCases);
         tvRecovered = findViewById(R.id.tvRecovered);
-        tvCritical = findViewById(R.id.tvCritical);
-        tvActive = findViewById(R.id.tvActive);
-        tvTodayCases = findViewById(R.id.tvTodayCases);
         tvTotalDeaths = findViewById(R.id.tvTotalDeaths);
+        tvTodayCases = findViewById(R.id.tvTodayCases);
         tvTodayDeaths = findViewById(R.id.tvTodayDeaths);
-        tvAffectedCountries = findViewById(R.id.tvAffectedCountries);
+        tvTodayRecovered = findViewById(R.id.tvTodayRecovered);
 
-        simpleArcLoader = findViewById(R.id.loader);
         scrollView = findViewById(R.id.scrollStats);
-        pieChart = findViewById(R.id.piechart);
         btnTrack = findViewById(R.id.btnTrack);
-        btnViewAllMethod = findViewById(R.id.btnViewAllMethod);
-
-        //methods
-        methodRecycler = findViewById(R.id.method_recycler);
+        tvDate1 = findViewById(R.id.tv_date1);
+        tvDate2 = findViewById(R.id.tv_date2);
 
         //menu hook
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -285,25 +248,39 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void goShopping() {
         Intent intent = new Intent(MainActivity.this, Products.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_in_right);
     }
 
     private void goTrackCountries() {
         Intent intent = new Intent(MainActivity.this, AffectedCountries.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_in_right);
     }
 
     private void goLogin() {
         Intent intent = new Intent(MainActivity.this, Login.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_in_right);
     }
 
     private void goProfile() {
         Intent intent = new Intent(MainActivity.this, UserProfile.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_in_right);
     }
 
     private void goMethods() {
         Intent intent = new Intent(MainActivity.this, Methods.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_in_right);
+    }
+
+    //get date
+    private void getDate(){
+        Calendar calendar = Calendar.getInstance();
+        String currentData = DateFormat.getDateInstance(DateFormat.DEFAULT).format(calendar.getTime());
+
+        tvDate1.setText("Newest Update " + currentData);
+        tvDate2.setText("Newest Update " + currentData);
     }
 }
