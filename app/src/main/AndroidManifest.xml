@@ -19,7 +19,7 @@
         <activity android:name=".Products" />
         <activity android:name=".Login" />
         <activity android:name=".EditPasswordSuccessMessage" />
-        <activity android:name=".ForgetPassword" />
+        <activity android:name=".ForgetPassword"/>
         <activity android:name=".SignUp" />
         <activity android:name=".MainActivity" />
         <activity android:name=".DetailActivity" />
