@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     //Others
     TextView tvCases, tvRecovered, tvTotalDeaths, tvTodayCases , tvTodayDeaths, tvTodayRecovered;
-    ScrollView scrollView;
     Button btnTrack;
     MenuView.ItemView productSelected;
     TextView tvDate1,tvDate2;
@@ -101,7 +100,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            scrollView.setVisibility(View.VISIBLE);
                         }
 
 
@@ -109,7 +107,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                scrollView.setVisibility(View.VISIBLE);
                 Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
@@ -126,13 +123,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         startActivity(intent);
     }
 
-    public void goShopping(View view) {
-        Intent intent = new Intent(MainActivity.this, Products.class);
+    public void goGlobalState(View view) {
+        Intent intent = new Intent(MainActivity.this, GlobalStateDetail.class);
         startActivity(intent);
     }
 
-    public void goMethods(View view) {
-        Intent intent = new Intent(MainActivity.this, Methods.class);
+    public void goTodayState(View view) {
+        Intent intent = new Intent(MainActivity.this, TodayStateDetail.class);
         startActivity(intent);
     }
 
@@ -144,7 +141,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         tvTodayDeaths = findViewById(R.id.tvTodayDeaths);
         tvTodayRecovered = findViewById(R.id.tvTodayRecovered);
 
-        scrollView = findViewById(R.id.scrollStats);
         btnTrack = findViewById(R.id.btnTrack);
         tvDate1 = findViewById(R.id.tv_date1);
         tvDate2 = findViewById(R.id.tv_date2);
