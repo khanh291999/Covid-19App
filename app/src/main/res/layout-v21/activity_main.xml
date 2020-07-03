@@ -80,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-<!--                Global State-->
+                <!--                Global State-->
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -132,8 +132,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginBottom="10dp">
+                        android:layout_marginBottom="10dp"
+                        android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -240,7 +240,7 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
-<!--                Case update-->
+                <!--                Case update-->
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -401,7 +401,7 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
-<!--                Virus-->
+                <!--                Virus-->
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -436,10 +436,10 @@
                     </RelativeLayout>
 
                     <ImageView
-                        android:layout_marginTop="40dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/map"/>
+                        android:layout_marginTop="40dp"
+                        android:src="@drawable/map" />
 
                 </RelativeLayout>
             </LinearLayout>
