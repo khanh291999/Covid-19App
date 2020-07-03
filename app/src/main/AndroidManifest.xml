@@ -11,6 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".TodayStateDetail"></activity>
+        <activity android:name=".GlobalStateDetail" />
         <activity android:name=".FavouriteMethods" />
         <activity android:name=".Methods" />
         <activity android:name=".UserProfile" />
