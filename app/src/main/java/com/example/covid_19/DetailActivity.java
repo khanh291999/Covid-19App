@@ -46,6 +46,11 @@ public class DetailActivity extends AppCompatActivity {
         attachData();
     }
 
+    public void goBack(View view){
+        startActivity(new Intent(this, MainActivity.class));
+        finish();
+    }
+
     private void attachData() {
         simpleArcLoader.start();
         tvCountry.setText(AffectedCountries.countryModelsList.get(positionCountry).getCountry());
