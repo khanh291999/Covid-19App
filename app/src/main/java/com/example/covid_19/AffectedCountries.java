@@ -163,4 +163,9 @@ public class AffectedCountries extends AppCompatActivity {
 
     }
 
+    public void goBack(View view){
+        startActivity(new Intent(this, MainActivity.class));
+        finish();
+    }
+
 }
