@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PreventionOne">
+
+    <RelativeLayout
+        android:id="@+id/prevention1_header"
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
+
+        <ImageView
+            android:layout_width="500dp"
+            android:layout_height="300dp"
+            android:layout_marginLeft="-30dp"
+            android:layout_marginTop="-30dp"
+            android:src="@drawable/intersection" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:onClick="goBackMethod1"
+            android:src="@drawable/ic_keyboard_arrow_left_white" />
+
+        <ImageView
+            android:id="@+id/wear_mask_img"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/wear_mask" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/prevention1_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/prevention1_header"
+        android:fontFamily="@font/baloo"
+        android:gravity="center"
+        android:text="Wear face mask"
+        android:textColor="#000"
+        android:textSize="35sp"
+        android:textStyle="bold" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/prevention1_title">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textSize="18sp"
+            android:textColor="#7C7C7C"
+            android:text="
+1. Before touching the mask, clean hands with an alcohol-based hand rub or soap and water
+\n
+2. Take the mask and inspect it for tears or holes.
+\n
+3. Orient which side is the top side (where the metal strip is).
+\n
+4. Ensure the proper side of the mask faces outwards (the coloured side).
+\n
+5. Place the mask to your face. Pinch the metal strip or stiff edge of the mask so it moulds to the shape of your nose.
+\n
+6. Pull down the mask’s bottom so it covers your mouth and your chin.
+\n
+7. Do not touch the mask while you are wearing it for protection.
+\n
+8. After use, take off the mask with clean hands; remove the elastic loops from behind the ears while keeping the mask away from your face and clothes, to avoid touching potentially contaminated surfaces of the mask.
+\n
+9. Discard the mask in a closed bin immediately after use. Do not reuse the mask.
+\n
+10. Perform hand hygiene after touching or discarding the mask – Use alcohol-based hand rub or, if visibly soiled, wash your hands with soap and water." />
+
+    </ScrollView>
+
+
+</RelativeLayout>

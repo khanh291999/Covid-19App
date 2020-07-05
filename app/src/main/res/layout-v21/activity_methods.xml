@@ -5,7 +5,6 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00000000"
     tools:context=".Methods">
 
     <com.google.android.material.navigation.NavigationView
@@ -31,7 +30,8 @@
             android:layout_marginLeft="-50dp"
             android:layout_marginTop="-170dp"
             android:layout_marginRight="-50dp"
-            android:background="@drawable/dashboard_circle_bg">
+            android:background="@drawable/dashboard_circle_bg"
+            android:translationZ="-1dp">
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
@@ -52,26 +52,26 @@
             android:id="@+id/dashboard_title1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="220dp"
-            android:layout_marginLeft="220dp"
             android:layout_marginTop="50dp"
+            android:layout_marginLeft="220dp"
             android:fontFamily="@font/baloo"
             android:text="Get to know"
             android:textColor="#ffff"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:layout_marginStart="220dp" />
 
         <TextView
             android:id="@+id/dashboard_title2"
+            android:layout_below="@+id/dashboard_title1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/dashboard_title1"
-            android:layout_marginStart="220dp"
-            android:layout_marginLeft="220dp"
-            android:layout_marginTop="-10dp"
             android:fontFamily="@font/baloo"
             android:text="About Covid-19."
+            android:layout_marginLeft="220dp"
+            android:layout_marginTop="-10dp"
             android:textColor="#ffff"
-            android:textSize="22sp" />
+            android:textSize="22sp"
+            android:layout_marginStart="220dp" />
 
         <ImageView
             android:id="@+id/menu_icon"
@@ -83,10 +83,10 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_below="@+id/dashboard_title2"
             android:background="#00000000"
-            android:translationZ="-1dp">
+            android:translationZ="-10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -103,145 +103,131 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
-                        android:layout_marginLeft="20dp"
                         android:text="Symptoms"
                         android:textColor="#000000"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        app:fontFamily="@font/allerta" />
+                        app:fontFamily="@font/allerta"
+                        android:layout_marginLeft="20dp" />
 
                     <LinearLayout
+                        android:onClick="goDetailMethod"
+                        android:id="@+id/symptomAll"
+                        android:layout_below="@+id/tv_symptoms"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/tv_symptoms"
-                        android:paddingTop="15dp"
-                        android:paddingBottom="10dp">
+                        >
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="10dp"
-                            android:layout_weight="1">
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="100dp"
+                            android:layout_height="120dp"
+                            android:layout_weight="1"
+                            app:cardCornerRadius="5dp"
+                            app:cardElevation="10dp">
 
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="120dp"
-                                android:layout_height="120dp"
-                                app:cardCornerRadius="5dp"
-                                app:cardElevation="10dp">
+                            <RelativeLayout
+                                android:id="@+id/card_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center">
 
-                                <RelativeLayout
-                                    android:id="@+id/card_1"
+                                <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_gravity="center">
+                                    android:src="@drawable/shape_small" />
 
-                                    <ImageView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:src="@drawable/shape_small" />
-
-                                    <ImageView
-                                        android:id="@+id/img_1"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:src="@drawable/headache" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_below="@+id/img_1"
-                                        android:layout_centerHorizontal="true"
-                                        android:fontFamily="@font/allerta"
-                                        android:text="Headache"
-                                        android:textColor="#000" />
-                                </RelativeLayout>
-
-                            </androidx.cardview.widget.CardView>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="120dp"
-                                android:layout_height="120dp"
-                                app:cardCornerRadius="5dp"
-                                app:cardElevation="10dp">
-
-                                <RelativeLayout
-                                    android:id="@+id/card_2"
+                                <ImageView
+                                    android:id="@+id/img_1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_gravity="center">
+                                    android:src="@drawable/headache" />
 
-                                    <ImageView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:src="@drawable/shape_small" />
-
-                                    <ImageView
-                                        android:id="@+id/img_2"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:src="@drawable/caugh" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_below="@+id/img_2"
-                                        android:layout_centerHorizontal="true"
-                                        android:fontFamily="@font/allerta"
-                                        android:text="Cough"
-                                        android:textColor="#000" />
-                                </RelativeLayout>
-
-                            </androidx.cardview.widget.CardView>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="120dp"
-                                android:layout_height="120dp"
-                                app:cardCornerRadius="5dp"
-                                app:cardElevation="10dp">
-
-                                <RelativeLayout
-                                    android:id="@+id/card_3"
+                                <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_gravity="center">
+                                    android:layout_below="@+id/img_1"
+                                    android:layout_centerHorizontal="true"
+                                    android:fontFamily="@font/allerta"
+                                    android:textStyle="bold"
+                                    android:text="Tiredness"
+                                    android:textColor="#000" />
+                            </RelativeLayout>
 
-                                    <ImageView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:src="@drawable/shape_small" />
+                        </androidx.cardview.widget.CardView>
 
-                                    <ImageView
-                                        android:id="@+id/img_3"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:src="@drawable/fever" />
+                        <androidx.cardview.widget.CardView
+                            android:layout_weight="1"
+                            android:layout_width="100dp"
+                            android:layout_height="120dp"
+                            app:cardCornerRadius="5dp"
+                            app:cardElevation="10dp">
 
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_below="@+id/img_3"
-                                        android:layout_centerHorizontal="true"
-                                        android:fontFamily="@font/allerta"
-                                        android:text="Fever"
-                                        android:textColor="#000" />
-                                </RelativeLayout>
+                            <RelativeLayout
+                                android:id="@+id/card_2"
+                                android:layout_gravity="center"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
 
-                            </androidx.cardview.widget.CardView>
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/shape_small" />
 
-                        </LinearLayout>
+                                <ImageView
+                                    android:id="@+id/img_2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/caugh" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/img_2"
+                                    android:layout_centerHorizontal="true"
+                                    android:fontFamily="@font/allerta"
+                                    android:textStyle="bold"
+                                    android:text="Cough"
+                                    android:textColor="#000" />
+                            </RelativeLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_weight="1"
+                            android:layout_width="100dp"
+                            android:layout_height="120dp"
+                            app:cardCornerRadius="5dp"
+                            app:cardElevation="10dp">
+
+                            <RelativeLayout
+                                android:id="@+id/card_3"
+                                android:layout_gravity="center"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/shape_small" />
+
+                                <ImageView
+                                    android:id="@+id/img_3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/fever" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/img_3"
+                                    android:layout_centerHorizontal="true"
+                                    android:fontFamily="@font/allerta"
+                                    android:textStyle="bold"
+                                    android:text="Fever"
+                                    android:textColor="#000" />
+                            </RelativeLayout>
+
+                        </androidx.cardview.widget.CardView>
 
                     </LinearLayout>
                 </RelativeLayout>
@@ -249,28 +235,27 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp">
+                    android:layout_marginTop="30dp">
 
                     <TextView
                         android:id="@+id/tv_prevention"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
-                        android:layout_marginBottom="10dp"
                         android:text="Prevention"
                         android:textColor="#000000"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        app:fontFamily="@font/allerta" />
+                        app:fontFamily="@font/allerta"
+                        android:layout_marginLeft="20dp" />
 
                     <androidx.cardview.widget.CardView
+                        android:onClick="goPreventionOne"
                         android:id="@+id/wear_mask_card"
+                        android:layout_below="@+id/tv_prevention"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/tv_prevention"
-                        android:layout_margin="10dp"
-                        android:elevation="10dp"
-                        app:cardCornerRadius="10dp">
+                        android:layout_margin="10dp">
 
                         <RelativeLayout
                             android:layout_width="wrap_content"
@@ -279,54 +264,54 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/intersection" />
+                                android:src="@drawable/intersection"/>
 
                             <ImageView
                                 android:id="@+id/wear_mask_img"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/wear_mask" />
+                                android:src="@drawable/wear_mask"/>
 
                             <TextView
                                 android:id="@+id/tv_wear_mask"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="20dp"
-                                android:layout_toRightOf="@+id/wear_mask_img"
-                                android:fontFamily="@font/allerta"
                                 android:text="Wear face mask"
+                                android:fontFamily="@font/allerta"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:layout_marginTop="20dp"
                                 android:textColor="#000"
-                                android:textSize="14sp" />
+                                android:layout_toRightOf="@+id/wear_mask_img"/>
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="212dp"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/tv_wear_mask"
-                                android:layout_marginTop="5dp"
                                 android:layout_toRightOf="@+id/wear_mask_img"
                                 android:fontFamily="@font/allerta"
-                                android:text="Since the start of the coronavirus out break some places have embraces wearing facemask, and anyone caught without one risks becoming a a social pariah"
-                                android:textSize="12sp" />
+                                android:textSize="12sp"
+                                android:layout_marginTop="5dp"
+                                android:text="Since the start of the coronavirus out break some places have embraces wearing facemask, and anyone caught without one risks becoming a a social pariah"/>
 
                             <ImageView
+                                android:layout_marginRight="5dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_alignParentEnd="true"
-                                android:layout_alignParentRight="true"
+                                android:src="@drawable/forward"
                                 android:layout_marginTop="127dp"
-                                android:layout_marginRight="5dp"
-                                android:src="@drawable/forward" />
+                                android:layout_alignParentRight="true"
+                                android:layout_alignParentEnd="true" />
 
                         </RelativeLayout>
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
+                        android:onClick="goPreventionTwo"
+                        android:layout_below="@+id/wear_mask_card"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/wear_mask_card"
-                        android:layout_margin="10dp"
-                        android:elevation="10dp"
-                        app:cardCornerRadius="10dp">
+                        android:layout_margin="10dp">
 
                         <RelativeLayout
                             android:layout_width="wrap_content"
@@ -350,17 +335,18 @@
                                 android:layout_marginTop="20dp"
                                 android:layout_toRightOf="@+id/wash_hand_img"
                                 android:fontFamily="@font/allerta"
+                                android:textStyle="bold"
                                 android:text="Wash your hand"
                                 android:textColor="#000"
                                 android:textSize="14sp" />
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="210dp"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/tv_wash_hand"
-                                android:layout_marginTop="5dp"
                                 android:layout_toRightOf="@+id/wash_hand_img"
                                 android:fontFamily="@font/allerta"
+                                android:layout_marginTop="5dp"
                                 android:text="These diseases include gastrointestinal infection, such as Salmonella, and respiratory infection, such as influenza"
                                 android:textSize="12sp" />
 

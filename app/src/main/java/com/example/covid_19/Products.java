@@ -17,8 +17,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.example.covid_19.HelperClasses.MethodAdapter;
-import com.example.covid_19.HelperClasses.MethodHelperClass;
 import com.example.covid_19.HelperClasses.ProductAdapter;
 import com.example.covid_19.HelperClasses.ProductHelperClass;
 import com.google.android.material.navigation.NavigationView;
