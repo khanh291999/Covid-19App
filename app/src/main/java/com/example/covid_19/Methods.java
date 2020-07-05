@@ -2,10 +2,9 @@ package com.example.covid_19;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,11 +17,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.example.covid_19.HelperClasses.MethodAdapter;
-import com.example.covid_19.HelperClasses.MethodHelperClass;
+import com.example.covid_19.Model.MethodDetail;
 import com.google.android.material.navigation.NavigationView;
-
-import java.util.ArrayList;
 
 public class Methods extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -30,6 +26,9 @@ public class Methods extends AppCompatActivity implements NavigationView.OnNavig
     static final float END_SCALE = 0.7f;
 
     RelativeLayout contentView;
+
+    LinearLayout linearLayout;
+    CardView card1,card2;
 
     //Drawer Menu
     DrawerLayout drawerLayout;
@@ -174,5 +173,18 @@ public class Methods extends AppCompatActivity implements NavigationView.OnNavig
         overridePendingTransition(R.anim.slide_in_left,R.anim.slide_in_right);
     }
 
+    //Prevention
+    public void goPreventionOne(View view){
+        startActivity(new Intent(Methods.this, PreventionOne.class));
+    }
+
+    public void goPreventionTwo(View view){
+        startActivity(new Intent(Methods.this, PreventionTwo.class));
+    }
+
+    //Symptoms
+    public void goDetailMethod(View view){
+        startActivity(new Intent(Methods.this, MethodDetail.class));
+    }
 
 }
