@@ -1,55 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="150dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
     app:cardCornerRadius="5dp"
-    app:cardElevation="8dp"
-    android:layout_margin="10dp">
+    app:cardElevation="8dp">
 
     <RelativeLayout
-        android:layout_width="300dp"
-        android:layout_height="150dp"
-        android:padding="10dp"
-        >
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:id="@+id/methodTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="What is a coronavirus?"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:fontFamily="@font/allerta" />
 
         <ImageView
-            android:id="@+id/method_image"
-            android:layout_width="100dp"
-            android:layout_height="150dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/aed" />
+            android:id="@+id/methodImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/plus_icon"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
         <TextView
-            android:id="@+id/method_title"
-            android:layout_width="wrap_content"
+            android:id="@+id/methodDesc"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@+id/method_image"
-            android:fontFamily="@font/baloo"
-            android:text="Self check"
-            android:textSize="20dp" />
-
-        <RatingBar
-            android:id="@+id/method_rating"
-            style="@style/Widget.AppCompat.RatingBar.Small"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/method_title"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@+id/method_image"
-            android:rating="4" />
-
-        <TextView
-            android:id="@+id/method_desc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="sadf asdfasdf sadfdsfsa sdfasdf asdfsd vcw"
-            android:layout_below="@id/method_rating"
-            android:layout_toRightOf="@id/method_image"
-            android:padding="10dp"/>
-
-
+            android:layout_below="@+id/methodTitle"
+            android:layout_margin="20dp"
+            android:text="Coronaviruses are a large family of viruses which may cause illness in animals or humans.  In humans, several coronaviruses are known to cause respiratory infections ranging from the common cold to more severe diseases such as Middle East Respiratory Syndrome (MERS) and Severe Acute Respiratory Syndrome (SARS). The most recently discovered coronavirus causes coronavirus disease COVID-19."
+            android:visibility="gone" />
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

@@ -1,71 +1,707 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/detail_page_header_bg"
-   >
+    tools:context=".Model.MethodDetail">
 
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/backicon"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"/>
-
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="165dp"
-        android:layout_height="142dp"
-        android:layout_below="@id/imageView1"
-        android:layout_marginTop="16dp"
-        app:srcCompat="@drawable/aed"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentLeft="true"/>
-
-
-    <ImageView
-        android:id="@+id/imageView3"
+    <RelativeLayout
+        android:id="@+id/content"
         android:layout_width="match_parent"
-        android:layout_height="476dp"
-        android:layout_below="@id/imageView2"
-        android:layout_marginTop="32dp"
-        app:srcCompat="@drawable/detail_page_bg" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="362dp"
-        android:layout_height="69dp"
-        android:layout_below="@id/imageView3"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="-374dp"
-        android:layout_marginRight="16dp"
-        android:text="Method name"
-        android:textSize="30dp" />
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/dashboard_bg"
+            android:layout_width="10000dp"
+            android:layout_height="400dp"
+            android:layout_marginLeft="-50dp"
+            android:layout_marginTop="-170dp"
+            android:layout_marginRight="-50dp"
+            android:background="@drawable/dashboard_circle_bg"
+            android:translationZ="-1dp">
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-50dp"
+            android:src="@drawable/virus" />
+
+        <ImageView
+            android:layout_width="441dp"
+            android:layout_height="529dp"
+            android:layout_marginLeft="-60dp"
+            android:layout_marginTop="28dp"
+            android:src="@drawable/coronadr_new" />
+
+        <TextView
+            android:id="@+id/dashboard_title1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="220dp"
+            android:layout_marginLeft="220dp"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/baloo"
+            android:text="Get to know"
+            android:textColor="#ffff"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/dashboard_title2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dashboard_title1"
+            android:layout_marginStart="220dp"
+            android:layout_marginLeft="220dp"
+            android:layout_marginTop="-10dp"
+            android:fontFamily="@font/baloo"
+            android:text="About Covid-19."
+            android:textColor="#ffff"
+            android:textSize="22sp" />
+
+        <ImageView
+            android:onClick="goBackMethodfromDetail"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_keyboard_arrow_left_white" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dashboard_bg"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/symptomsTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_symptoms"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="Symptoms"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/allerta" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_symptoms">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="100dp"
+                        android:layout_height="120dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="10dp">
+
+                        <RelativeLayout
+                            android:id="@+id/card_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/shape_small" />
+
+                            <ImageView
+                                android:id="@+id/img_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/headache" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/img_1"
+                                android:layout_centerHorizontal="true"
+                                android:fontFamily="@font/allerta"
+                                android:text="Tiredness"
+                                android:textColor="#000" />
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="100dp"
+                        android:layout_height="120dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="10dp">
+
+                        <RelativeLayout
+                            android:id="@+id/card_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/shape_small" />
+
+                            <ImageView
+                                android:id="@+id/img_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/caugh" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/img_2"
+                                android:layout_centerHorizontal="true"
+                                android:fontFamily="@font/allerta"
+                                android:text="Cough"
+                                android:textColor="#000" />
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="100dp"
+                        android:layout_height="120dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="10dp">
+
+                        <RelativeLayout
+                            android:id="@+id/card_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/shape_small" />
+
+                            <ImageView
+                                android:id="@+id/img_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/fever" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/img_3"
+                                android:layout_centerHorizontal="true"
+                                android:fontFamily="@font/allerta"
+                                android:text="Fever"
+                                android:textColor="#000" />
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:orientation="vertical">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/methodRecycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
 
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="368dp"
-        android:layout_height="126dp"
-        android:layout_below="@id/textView1"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginRight="16dp"
-        android:text="Long description"
-        android:textSize="30dp" />
+                    <!-- card 1-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardDetail1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp">
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="199dp"
-        android:layout_height="72dp"
-        android:layout_below="@id/textView2"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="40dp"
-        android:layout_marginRight="7dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/detail_page_header_bg"
-        android:text="Add to favourite" />
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp">
+
+                            <TextView
+                                android:id="@+id/title1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:text="What is a coronavirus?"
+                                android:textColor="#000000"
+                                android:textSize="16sp"
+                                app:fontFamily="@font/allerta" />
+
+                            <ImageView
+                                android:id="@+id/plus1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/plus_icon"
+                                android:layout_alignParentRight="true"/>
+
+                            <TextView
+                                android:id="@+id/content1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/title1"
+                                android:layout_margin="20dp"
+                                android:text="Coronaviruses are a large family of viruses which may cause illness in animals or humans.  In humans, several coronaviruses are known to cause respiratory infections ranging from the common cold to more severe diseases such as Middle East Respiratory Syndrome (MERS) and Severe Acute Respiratory Syndrome (SARS). The most recently discovered coronavirus causes coronavirus disease COVID-19."
+                                android:visibility="gone" />
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- card 2-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardDetail2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp">
+
+                            <TextView
+                                android:id="@+id/title2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:drawableRight="@drawable/plus_icon"
+                                android:text="What is COVID-19?"
+                                android:textColor="#000000"
+                                android:textSize="16sp"
+                                app:fontFamily="@font/allerta" />
+
+                            <TextView
+                                android:id="@+id/content2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/title2"
+                                android:layout_margin="20dp"
+                                android:text="COVID-19 is the infectious disease caused by the most recently discovered coronavirus. This new virus and disease were unknown before the outbreak began in Wuhan, China, in December 2019. COVID-19 is now a pandemic affecting many countries globally."
+                                android:visibility="gone" />
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- card 3-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardDetail3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp">
+
+                            <TextView
+                                android:id="@+id/title3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:drawableRight="@drawable/plus_icon"
+                                android:text="What are the symptoms of COVID-19?"
+                                android:textColor="#000000"
+                                android:textSize="16sp"
+                                app:fontFamily="@font/allerta" />
+
+                            <TextView
+                                android:id="@+id/content3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/title3"
+                                android:layout_margin="20dp"
+                                android:text="The most common symptoms of COVID-19 are fever, dry cough, and tiredness. Other symptoms that are less common and may affect some patients include aches and pains, nasal congestion, headache, conjunctivitis, sore throat, diarrhea, loss of taste or smell or a rash on skin or discoloration of fingers or toes. These symptoms are usually mild and begin gradually. Some people become infected but only have very mild symptoms.\n \nMost people (about 80%) recover from the disease without needing hospital treatment. Around 1 out of every 5 people who gets COVID-19 becomes seriously ill and develops difficulty breathing. Older people, and those with underlying medical problems like high blood pressure, heart and lung problems, diabetes, or cancer, are at higher risk of developing serious illness.  However, anyone can catch COVID-19 and become seriously ill.  People of all ages who experience fever and/or  cough associated withdifficulty breathing/shortness of breath, chest pain/pressure, or loss of speech or movement should seek medical attention immediately. If possible, it is recommended to call the health care provider or facility first, so the patient can be directed to the right clinic."
+                                android:visibility="gone" />
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- card 4-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardDetail4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp">
+
+                            <TextView
+                                android:id="@+id/title4"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:drawableRight="@drawable/plus_icon"
+                                android:lines="2"
+                                android:text="What should I do if I have COVID-19 symptoms and when should I seek medical care?"
+                                android:textColor="#000000"
+                                android:textSize="16sp"
+                                app:fontFamily="@font/allerta" />
+
+                            <TextView
+                                android:id="@+id/content4"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/title4"
+                                android:layout_margin="20dp"
+                                android:text="If you have minor symptoms, such as a slight cough or a mild fever, there is generally no need to seek medical care. Stay at home, self-isolate and monitor your symptoms. Follow national guidance on self-isolation.
+                                    \n\nHowever, if you live in an area with malaria or dengue fever it is important that you do not ignore symptoms of fever.  Seek medical help.  When you attend the health facility wear a mask if possible, keep at least 1 metre distance from other people and do not touch surfaces with your hands. If it is a child who is sick help the child stick to this advice.
+                                    \n\nSeek immediate medical care if you have difficulty breathing or pain/pressure in the chest. If possible, call your health care provider in advance, so he/she can direct you to the right health facility."
+                                android:visibility="gone" />
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- card 5-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardDetail5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp">
+
+                            <TextView
+                                android:id="@+id/title5"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:drawableRight="@drawable/plus_icon"
+                                android:text="How does COVID-19 spread?"
+                                android:textColor="#000000"
+                                android:textSize="16sp"
+                                app:fontFamily="@font/allerta" />
+
+                            <TextView
+                                android:id="@+id/content5"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/title5"
+                                android:layout_margin="20dp"
+                                android:text="People can catch COVID-19 from others who have the virus. The disease spreads primarily from person to person through small droplets from the nose or mouth, which are expelled when a person with COVID-19 coughs, sneezes, or speaks. These droplets are relatively heavy, do not travel far and quickly sink to the ground. People can catch COVID-19 if they breathe in these droplets from a person infected with the virus.  This is why it is important to stay at least 1 meter) away from others. These droplets can land on objects and surfaces around the person such as tables, doorknobs and handrails.  People can become infected by touching these objects or surfaces, then touching their eyes, nose or mouth.  This is why it is important to wash your hands regularly with soap and water or clean with alcohol-based hand rub.
+                                    \n\nWHO is assessing ongoing research on the ways that COVID-19 is spread and will continue to share updated findings.    "
+                                android:visibility="gone" />
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- card 6-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardDetail6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp">
+
+                            <TextView
+                                android:id="@+id/title6"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:drawableRight="@drawable/plus_icon"
+                                android:text="Can COVID-19 be caught from a person who has no symptoms?"
+                                android:textColor="#000000"
+                                android:textSize="16sp"
+                                app:fontFamily="@font/allerta" />
+
+                            <TextView
+                                android:id="@+id/content6"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/title6"
+                                android:layout_margin="20dp"
+                                android:text="COVID-19 is mainly spread through respiratory droplets expelled by someone who is coughing or has other symptoms such as fever or tiredness. Many people with COVID-19 experience only mild symptoms. This is particularly true in the early stages of the disease. It is possible to catch COVID-19 from someone who has just a mild cough and does not feel ill.
+
+\n\nSome reports have indicated that people with no symptoms can transmit the virus. It is not yet known how often it happens. WHO is assessing ongoing research on the topic and will continue to share updated findings."
+                                android:visibility="gone" />
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- card 7-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardDetail7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp">
+
+                            <TextView
+                                android:id="@+id/title7"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:drawableRight="@drawable/plus_icon"
+                                android:text="How can we protect others and ourselves if we don't know who is infected?"
+                                android:textColor="#000000"
+                                android:textSize="16sp"
+                                app:fontFamily="@font/allerta" />
+
+                            <TextView
+                                android:id="@+id/content7"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/title7"
+                                android:layout_margin="20dp"
+                                android:text="Practicing hand and respiratory hygiene is important at ALL times and is the best way to protect others and yourself.
+
+\n\nWhen possible maintain at least a 1 meter distance between yourself and others. This is especially important if you are standing by someone who is coughing or sneezing.  Since some infected persons may not yet be exhibiting symptoms or their symptoms may be mild, maintaining a physical distance with everyone is a good idea if you are in an area where COVID-19 is circulating. "
+                                android:visibility="gone" />
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- card 8-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardDetail8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp">
+
+                            <TextView
+                                android:id="@+id/title8"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:drawableRight="@drawable/plus_icon"
+                                android:text="What should I do if I have come in close contact with someone who has COVID-19?"
+                                android:textColor="#000000"
+                                android:textSize="16sp"
+                                app:fontFamily="@font/allerta" />
+
+                            <TextView
+                                android:id="@+id/content8"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/title8"
+                                android:layout_margin="20dp"
+                                android:text="If you have been in close contact with someone with COVID-19, you may be infected.
+
+\n\nClose contact means that you live with or have been in settings of less than 1 metre from those who have the disease. In these cases, it is best to stay at home.
+
+\n\nHowever, if you live in an area with malaria or dengue fever it is important that you do not ignore symptoms of fever. Seek medical help. When you attend the health facility wear a mask if possible, keep at least 1 metre distant from other people and do not touch surfaces with your hands. If it is a child who is sick help the child stick to this advice.
+
+\n\nIf you do not live in an area with malaria or dengue fever please do the following:
+\n\n\n
++ If you become ill, even with very mild symptoms you must self-isolate
+\n
++ Even if you don’t think you have been exposed to COVID-19 but develop symptoms, then self-isolate and monitor yourself
+\n
++ You are more likely to infect others in the early stages of the disease when you just have mild symptoms, therefore early self-isolation is very important.
+\n
++ If you do not have symptoms, but have been exposed to an infected person, self-quarantine for 14 days.
+\n\n
+If you have definitely had COVID-19 (confirmed by a test) self-isolate for 14 days even after symptoms have disappeared as a precautionary measure – it is not yet known exactly how long people remain infectious after they have recovered. Follow national advice on self-isolation."
+                                android:visibility="gone" />
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- card 9-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardDetail9"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp">
+
+                            <TextView
+                                android:id="@+id/title9"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:drawableRight="@drawable/plus_icon"
+                                android:text="Can children or adolescents catch COVID-19?"
+                                android:textColor="#000000"
+                                android:textSize="16sp"
+                                app:fontFamily="@font/allerta" />
+
+                            <TextView
+                                android:id="@+id/content9"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/title9"
+                                android:layout_margin="20dp"
+                                android:text="Research indicates that children and adolescents are just as likely to become infected as any other age group and can spread the disease.
+
+\n\nEvidence to date suggests that children and young adults are less likely to get severe disease, but severe cases can still happen in these age groups.
+
+\n\nChildren and adults should follow the same guidance on self-quarantine and self-isolation if there is a risk they have been exposed or are showing symptoms. It is particularly important that children avoid contact with older people and others who are at risk of more severe disease."
+                                android:visibility="gone" />
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- card 10-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardDetail10"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp">
+
+                            <TextView
+                                android:id="@+id/title10"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:drawableRight="@drawable/plus_icon"
+                                android:text="What can I do to protect myself and prevent the spread of disease?"
+                                android:textColor="#000000"
+                                android:textSize="16sp"
+                                app:fontFamily="@font/allerta" />
+
+                            <TextView
+                                android:id="@+id/content10"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/title10"
+                                android:layout_margin="20dp"
+                                android:text="Stay aware of the latest information on the COVID-19 outbreak, available on the WHO website and through your national and local public health authority. Most countries around the world have seen cases of COVID-19 and many are experiencing outbreaks. Authorities in China and some other countries have succeeded in slowing their outbreaks. However, the situation is unpredictable so check regularly for the latest news.
+
+\n\nYou can reduce your chances of being infected or spreading COVID-19 by taking some simple precautions:
+\n\n\n
++ Regularly and thoroughly clean your hands with an alcohol-based hand rub or wash them with soap and water. Why? Washing your hands with soap and water or using alcohol-based hand rub kills viruses that may be on your hands.
+\n
++ Maintain at least 1 metre distance between yourself and others. Why? When someone coughs, sneezes, or speaks they spray small liquid droplets from their nose or mouth which may contain virus. If you are too close, you can breathe in the droplets, including the COVID-19 virus if the person has the disease.
+\n
++ Avoid going to crowded places. Why? Where people come together in crowds, you are more likely to come into close contact with someone that has COVID-19 and it is more difficult to maintain physical distance of 1 metre.
+\n
++ Avoid touching eyes, nose and mouth. Why? Hands touch many surfaces and can pick up viruses. Once contaminated, hands can transfer the virus to your eyes, nose or mouth. From there, the virus can enter your body and infect you.
+\n
++ Make sure you, and the people around you, follow good respiratory hygiene. This means covering your mouth and nose with your bent elbow or tissue when you cough or sneeze. Then dispose of the used tissue immediately and wash your hands. Why? Droplets spread virus. By following good respiratory hygiene, you protect the people around you from viruses such as cold, flu and COVID-19.
+\n
++ Stay home and self-isolate even with minor symptoms such as cough, headache, mild fever, until you recover. Have someone bring you supplies. If you need to leave your house, wear a mask to avoid infecting others. Why? Avoiding contact with others will protect them from possible COVID-19 and other viruses.
+\n
++ If you have a fever, cough and difficulty breathing, seek medical attention, but call by telephone in advance if possible and follow the directions of your local health authority. Why? National and local authorities will have the most up to date information on the situation in your area. Calling in advance will allow your health care provider to quickly direct you to the right health facility. This will also protect you and help prevent spread of viruses and other infections.
+\n
++ Keep up to date on the latest information from trusted sources, such as WHO or your local and national health authorities. Why? Local and national authorities are best placed to advise on what people in your area should be doing to protect themselves."
+                                android:visibility="gone" />
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- card 11-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardDetail11"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp">
+
+                            <TextView
+                                android:id="@+id/title11"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:drawableRight="@drawable/plus_icon"
+                                android:text="Is there a vaccine, drug or treatment for COVID-19?"
+                                android:textColor="#000000"
+                                android:textSize="16sp"
+                                app:fontFamily="@font/allerta" />
+
+                            <TextView
+                                android:id="@+id/content11"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/title11"
+                                android:layout_margin="20dp"
+                                android:text="While some western, traditional or home remedies may provide comfort and alleviate symptoms of mild COVID-19, there are no medicines that have been shown to prevent or cure the disease. WHO does not recommend self-medication with any medicines, including antibiotics, as a prevention or cure for COVID-19. However, there are several ongoing clinical trials of both western and traditional medicines. WHO is coordinating efforts to develop vaccines and medicines to prevent and treat COVID-19 and will continue to provide updated information as soon research results become available.
+
+\n\nThe most effective ways to protect yourself and others against COVID-19 are to:
+\n\n\n
++ Clean your hands frequently and thoroughly
+\n
++ Avoid touching your eyes, mouth and nose
+\n
++ Cover your cough with the bend of elbow or tissue. If a tissue is used, discard it immediately and wash your hands.
+\n
++ Maintain a distance of at least 1 metre from others. "
+                                android:visibility="gone" />
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- card 12-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardDetail12"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp">
+
+                            <TextView
+                                android:id="@+id/title12"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:drawableRight="@drawable/plus_icon"
+                                android:text="How long does the virus survive on surfaces?"
+                                android:textColor="#000000"
+                                android:textSize="16sp"
+                                app:fontFamily="@font/allerta" />
+
+                            <TextView
+                                android:id="@+id/content12"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/title12"
+                                android:layout_margin="20dp"
+                                android:text="The most important thing to know about coronavirus on surfaces is that they can easily be cleaned with common household disinfectants that will kill the virus. Studies have shown that the COVID-19 virus can survive for up to 72 hours on plastic and stainless steel, less than 4 hours on copper and less than 24 hours on cardboard.
+
+\n\nAs, always clean your hands with an alcohol-based hand rub or wash them with soap and water. Avoid touching your eyes, mouth, or nose."
+                                android:visibility="gone" />
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
 </RelativeLayout>
