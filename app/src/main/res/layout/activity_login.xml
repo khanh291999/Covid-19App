@@ -114,6 +114,12 @@
             android:textColor="#E74C3C"
             android:textSize="15dp"
             android:transitionName="login_signup_tran" />
+
+        <Button
+            android:id="@+id/main_act"
+            android:layout_width="17dp"
+            android:layout_height="wrap_content"
+            android:text="Button" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -79,16 +79,18 @@ public class Login extends AppCompatActivity {
                         String passwordz = password.getEditText().getText().toString().trim();
                         Cursor user = db.validateUser(usernamez, passwordz);
                         if (!(user.moveToFirst()) || user.getCount() == 0) {
-                            SharedPreferences sp = getSharedPreferences("LoggedUser", MODE_PRIVATE);
-                            SharedPreferences.Editor Ed = sp.edit();
-                            Ed.putString("Username",usernamez );
-                            Ed.apply();
+
                             // get user
                             //SharedPreferences sp1 = this.getSharedPreferences("LoggedUser", MODE_PRIVATE);
                             //String username = sp1.getString("Username", null);
                             Toast.makeText(Login.this,"Wrong Username or Password", Toast.LENGTH_LONG).show();
                         } else {
+                            SharedPreferences sp = getSharedPreferences("LoggedUser", MODE_PRIVATE);
+                            SharedPreferences.Editor Ed = sp.edit();
+                            Ed.putString("Username",usernamez );
+                            Ed.apply();
                             Toast.makeText(Login.this,"Login Successfully", Toast.LENGTH_LONG).show();
+                            startActivity(new Intent(Login.this, MainActivity.class));
                         }
                     }
                 }

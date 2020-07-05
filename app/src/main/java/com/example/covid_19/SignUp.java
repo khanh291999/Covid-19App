@@ -77,7 +77,7 @@ public class SignUp extends AppCompatActivity {
                         String password = Regpassword.getEditText().getText().toString().trim();
                         String email = Regemail.getEditText().getText().toString().trim();
                         String address = Regaddress.getEditText().getText().toString().trim();
-                        boolean isSuccess = db.insertUser(username, password, email, address);
+                        boolean isSuccess = db.insertUser(username, email, password, address);
                         if(isSuccess) {
                             Toast.makeText(SignUp.this,"SignUp Successfully", Toast.LENGTH_LONG).show();
                             btncallSignIn.performClick();
