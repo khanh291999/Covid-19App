@@ -90,6 +90,7 @@ public class Login extends AppCompatActivity {
                             Ed.putString("Username",usernamez );
                             Ed.apply();
                             Toast.makeText(Login.this,"Login Successfully", Toast.LENGTH_LONG).show();
+                            startActivity(new Intent(Login.this, MainActivity.class));
                         }
                     }
                 }
