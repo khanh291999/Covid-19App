@@ -1,11 +1,14 @@
 package com.example.covid_19.HelperClasses;
 
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -61,34 +64,38 @@ public class MethodAdapter extends RecyclerView.Adapter<MethodAdapter.MethodView
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    if (image.getDrawable() == image.getResources().getDrawable(R.drawable.plus_icon)) {
-//                        desc.setVisibility(View.VISIBLE);
-//                        title.setTextColor(Color.parseColor("#E74C3C"));
-//                        image.setImageDrawable(image.getResources().getDrawable(R.drawable.minus_icon));
-//                    } else if (image.getDrawable() == image.getResources().getDrawable(R.drawable.minus_icon)) {
-//                        desc.setVisibility(View.GONE);
-//                        title.setTextColor(Color.parseColor("#000000"));
-//                        image.setImageDrawable(image.getResources().getDrawable(R.drawable.plus_icon));
-//                    }
-
-                    ImageView imageView = (ImageView) image;
-                    assert (R.id.methodImg == imageView.getId());
-
-                    Integer integer = (Integer) imageView.getTag();
-                    integer = integer == null ? 0 : integer;
-
-                    switch (integer){
-                        case R.drawable.plus_icon:
-                            desc.setVisibility(View.VISIBLE);
-                            title.setTextColor(Color.parseColor("#E74C3C"));
-                            image.setImageDrawable(image.getResources().getDrawable(R.drawable.minus_icon));
-                            break;
-                        case R.drawable.minus_icon:
-                            desc.setVisibility(View.GONE);
-                            title.setTextColor(Color.parseColor("#000000"));
-                            image.setImageDrawable(image.getResources().getDrawable(R.drawable.plus_icon));
-                            break;
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    Drawable test1 = image.getResources().getDrawable(R.drawable.plus_icon);
+                    if(image.getDrawable().equals(test1)){
+                        desc.setVisibility(View.VISIBLE);
+                        title.setTextColor(Color.parseColor("#E74C3C"));
+                        image.setImageDrawable(image.getResources().getDrawable(R.drawable.minus_icon));
                     }
+                    else if (image.getDrawable() == image.getResources().getDrawable(R.drawable.minus_icon)){
+                        desc.setVisibility(View.GONE);
+                        title.setTextColor(Color.parseColor("#000000"));
+                        image.setImageDrawable(image.getResources().getDrawable(R.drawable.plus_icon));
+                    }
+                }
+
+//                    ImageView imageView = (ImageView) image;
+//                    assert (R.id.methodImg == imageView.getId());
+//
+//                    Integer integer = (Integer) imageView.getTag();
+//                    integer = integer == null ? 0 : integer;
+//
+//                    switch (integer){
+//                        case R.drawable.plus_icon:
+//                            desc.setVisibility(View.VISIBLE);
+//                            title.setTextColor(Color.parseColor("#E74C3C"));
+//                            image.setImageDrawable(image.getResources().getDrawable(R.drawable.minus_icon));
+//                            break;
+//                        case R.drawable.minus_icon:
+//                            desc.setVisibility(View.GONE);
+//                            title.setTextColor(Color.parseColor("#000000"));
+//                            image.setImageDrawable(image.getResources().getDrawable(R.drawable.plus_icon));
+//                            break;
+//                    }
                 }
             });
         }

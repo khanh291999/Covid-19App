@@ -26,12 +26,12 @@ import com.example.covid_19.R;
 
 import java.util.ArrayList;
 
-public class MethodDetail extends AppCompatActivity {
+public class MethodDetail extends AppCompatActivity{
 
-    CardView card1;
-    TextView title1;
-    TextView desc1;
-    ImageView img1;
+    CardView card1,card;
+    TextView title1,title;
+    TextView desc1,desc;
+    ImageView img1,image;
 
     RecyclerView methodRecycler;
     RecyclerView.Adapter methodAdapter;
@@ -43,8 +43,9 @@ public class MethodDetail extends AppCompatActivity {
         setContentView(R.layout.activity_method_detail);
 
         Hooks();
-        //goAction();
+        goAction();
         methodRecycler();
+        //
     }
 
     public void goBackMethodfromDetail(View view) {
@@ -66,32 +67,54 @@ public class MethodDetail extends AppCompatActivity {
     }
 
     private void Hooks(){
-        img1 = findViewById(R.id.methodImg);
+        img1 = findViewById(R.id.plus1);
         card1 = findViewById(R.id.cardDetail1);
-        title1 = findViewById(R.id.methodTitle);
-        desc1 = findViewById(R.id.methodDesc);
+        title1 = findViewById(R.id.title1);
+        desc1 = findViewById(R.id.content1);
         //
         methodRecycler = findViewById(R.id.methodRecycler);
+
     }
 
     private void goAction(){
-        card1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    Drawable test1 = img1.getResources().getDrawable(R.drawable.plus_icon);
-                    if(img1.getDrawable().equals(test1)){
-                        desc1.setVisibility(View.VISIBLE);
-                        title1.setTextColor(Color.parseColor("#E74C3C"));
-                        img1.setImageDrawable(getResources().getDrawable(R.drawable.minus_icon));
-                    }
-                    else if (img1.getDrawable() == img1.getResources().getDrawable(R.drawable.minus_icon)){
-                        desc1.setVisibility(View.GONE);
-                        title1.setTextColor(Color.parseColor("#000000"));
-                        img1.setImageDrawable(getResources().getDrawable(R.drawable.plus_icon));
-                    }
-                }
-            }
-        });
+//        card1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//                    Drawable test1 = img1.getResources().getDrawable(R.drawable.plus_icon);
+//                    if(img1.getDrawable().equals(test1)){
+//                        desc1.setVisibility(View.VISIBLE);
+//                        title1.setTextColor(Color.parseColor("#E74C3C"));
+//                        img1.setImageDrawable(getResources().getDrawable(R.drawable.minus_icon));
+//                    }
+//                    else if (img1.getDrawable() == img1.getResources().getDrawable(R.drawable.minus_icon)){
+//                        desc1.setVisibility(View.GONE);
+//                        title1.setTextColor(Color.parseColor("#000000"));
+//                        img1.setImageDrawable(getResources().getDrawable(R.drawable.plus_icon));
+//                    }
+//                }
+//            }
+//        });
     }
+
+//    @Override
+//    public void onClick(View v) {
+//
+//        switch (v.getId()){
+//            case R.id.cardDetail1:
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//                    Drawable test1 = img1.getResources().getDrawable(R.drawable.plus_icon);
+//                    if(img1.getDrawable().equals(test1)){
+//                        desc1.setVisibility(View.VISIBLE);
+//                        title1.setTextColor(Color.parseColor("#E74C3C"));
+//                        img1.setImageDrawable(getResources().getDrawable(R.drawable.minus_icon));
+//                    }
+//                    else if (img1.getDrawable() == img1.getResources().getDrawable(R.drawable.minus_icon)){
+//                        desc1.setVisibility(View.GONE);
+//                        title1.setTextColor(Color.parseColor("#000000"));
+//                        img1.setImageDrawable(getResources().getDrawable(R.drawable.plus_icon));
+//                    }
+//                }
+//        }
+//    }
 }
