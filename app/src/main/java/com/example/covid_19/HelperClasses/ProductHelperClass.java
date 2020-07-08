@@ -2,24 +2,54 @@ package com.example.covid_19.HelperClasses;
 
 public class ProductHelperClass {
 
-    int image;
-    String title, description;
+    Integer ID, ProductPrice;
+    String ProductName, ProductImage, ProductDescription;
 
-    public ProductHelperClass(int image, String title, String description) {
-        this.image = image;
-        this.title = title;
-        this.description = description;
+    public ProductHelperClass(Integer ID, Integer productPrice, String productName, String productImage, String productDescription) {
+        this.ID = ID;
+        ProductPrice = productPrice;
+        ProductName = productName;
+        ProductImage = productImage;
+        ProductDescription = productDescription;
     }
 
-    public int getImage() {
-        return image;
+    public Integer getID() {
+        return ID;
     }
 
-    public String getTitle() {
-        return title;
+    public void setID(Integer ID) {
+        this.ID = ID;
     }
 
-    public String getDescription() {
-        return description;
+    public Integer getProductPrice() {
+        return ProductPrice;
+    }
+
+    public void setProductPrice(Integer productPrice) {
+        ProductPrice = productPrice;
+    }
+
+    public String getProductName() {
+        return ProductName;
+    }
+
+    public void setProductName(String productName) {
+        ProductName = productName;
+    }
+
+    public String getProductImage() {
+        return ProductImage;
+    }
+
+    public void setProductImage(String productImage) {
+        ProductImage = productImage;
+    }
+
+    public String getProductDescription() {
+        return ProductDescription;
+    }
+
+    public void setProductDescription(String productDescription) {
+        ProductDescription = productDescription;
     }
 }

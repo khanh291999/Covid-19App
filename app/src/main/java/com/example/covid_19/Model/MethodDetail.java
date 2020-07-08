@@ -67,10 +67,10 @@ public class MethodDetail extends AppCompatActivity{
     }
 
     private void Hooks(){
-        img1 = findViewById(R.id.plus1);
-        card1 = findViewById(R.id.cardDetail1);
-        title1 = findViewById(R.id.title1);
-        desc1 = findViewById(R.id.content1);
+//        img1 = findViewById(R.id.plus1);
+//        card1 = findViewById(R.id.cardDetail1);
+//        title1 = findViewById(R.id.title1);
+//        desc1 = findViewById(R.id.content1);
         //
         methodRecycler = findViewById(R.id.methodRecycler);
 
