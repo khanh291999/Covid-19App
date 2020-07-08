@@ -1,6 +1,8 @@
 package com.example.covid_19.HelperClasses;
 
-public class ProductHelperClass {
+import java.io.Serializable;
+
+public class ProductHelperClass implements Serializable {
 
     Integer ID, ProductPrice;
     String ProductName, ProductImage, ProductDescription;

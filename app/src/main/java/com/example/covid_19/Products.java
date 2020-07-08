@@ -8,8 +8,10 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,6 +31,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.covid_19.HelperClasses.ProductAdapter;
 import com.example.covid_19.HelperClasses.ProductHelperClass;
+import com.example.covid_19.utils.CheckConnection;
 import com.example.covid_19.utils.Server;
 import com.google.android.material.navigation.NavigationView;
 import com.squareup.picasso.Picasso;
@@ -57,6 +60,9 @@ public class Products extends AppCompatActivity implements NavigationView.OnNavi
     //new
     ArrayList<ProductHelperClass> productarray;
     ProductAdapter productAdapter;
+    private static final String[] LOCATION_PERMS={
+            Manifest.permission.ACCESS_FINE_LOCATION
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,12 +71,21 @@ public class Products extends AppCompatActivity implements NavigationView.OnNavi
         setContentView(R.layout.activity_products);
 
         Hooks();
-        productRecycler();
         navigationDrawer();
         
         //new
         ActionViewFlipper();
         GetProductData();
+        if(CheckConnection.haveNetworkConnection(getApplicationContext())){
+            ActionViewFlipper();
+            GetProductData();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                requestPermissions(LOCATION_PERMS, 1337);
+            }
+        }else{
+            CheckConnection.ShowToast_Short(getApplicationContext(), "You need to check the connection");
+            finish();
+        }
     }
 
     private void GetProductData() {
@@ -146,19 +161,6 @@ public class Products extends AppCompatActivity implements NavigationView.OnNavi
         productRecycler.setHasFixedSize(true);
         productRecycler.setLayoutManager(new GridLayoutManager(getApplicationContext(),2));
         productRecycler.setAdapter(productAdapter);
-    }
-
-    private void productRecycler() {
-//        productRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-//
-//        ArrayList<ProductHelperClass> products = new ArrayList<>();
-//
-//        products.add(new ProductHelperClass(R.drawable.face_mask, "Face Mask", "aaaaa aaaaaaaa aaaaaa aaaaaaa aaaaaa aaaaaaa"));
-//        products.add(new ProductHelperClass(R.drawable.latex_disposable_gloves_100pcs, "Latex Gloves 100pcs", "aaaaa aaaaaaaa aaaaaa aaaaaaa aaaaaa aaaaaaa"));
-//        products.add(new ProductHelperClass(R.drawable.panadol_120v, "Panadol 120pcs", "aaaaa aaaaaaaa aaaaaa aaaaaaa aaaaaa aaaaaaa"));
-//
-//        productAdapter = new ProductAdapter(products);
-//        productRecycler.setAdapter(productAdapter);
     }
 
     //Navigation Drawer function

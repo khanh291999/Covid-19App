@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.covid_19">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -21,6 +22,7 @@
         <activity android:name=".UserProfile" />
         <activity android:name=".Products" />
         <activity android:name=".Login" />
+        <activity android:name=".Model.Productdetails"/>
         <activity android:name=".EditPasswordSuccessMessage" />
         <activity android:name=".ForgetPassword" />
         <activity android:name=".SignUp" />

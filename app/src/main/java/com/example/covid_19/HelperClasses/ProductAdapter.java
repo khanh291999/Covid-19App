@@ -1,6 +1,7 @@
 package com.example.covid_19.HelperClasses;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +11,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.covid_19.Model.Productdetails;
 import com.example.covid_19.R;
+import com.example.covid_19.utils.CheckConnection;
 import com.squareup.picasso.Picasso;
 
 import java.text.DecimalFormat;
@@ -60,6 +63,17 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ItemHold
             productimg = itemView.findViewById(R.id.imageviewproduct);
             txtproductprice = itemView.findViewById(R.id.textviewproductprice);
             txtproductname = itemView.findViewById(R.id.textviewproductname);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, Productdetails.class);
+                    intent.putExtra("imformationproduct", products.get(getAdapterPosition()));
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    CheckConnection.ShowToast_Short(context, products.get(getAdapterPosition()).getProductName());
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 
