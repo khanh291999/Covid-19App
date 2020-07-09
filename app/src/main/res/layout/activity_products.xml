@@ -39,6 +39,7 @@
                 android:src="@drawable/menu" />
 
             <ImageView
+                android:id="@+id/imageviewgotocart"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_alignParentEnd="true"

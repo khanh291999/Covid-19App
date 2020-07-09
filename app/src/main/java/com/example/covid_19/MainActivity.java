@@ -156,14 +156,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_method:
                 goMethods();
                 break;
-            case R.id.nav_favourite_method:
-                Toast.makeText(this,"Favourite Method",Toast.LENGTH_SHORT).show();
+            case R.id.nav_new:
+                Toast.makeText(this,"News",Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.nav_login:
-                goLogin();
+            case R.id.nav_about:
+                startActivity(new Intent(getApplicationContext(), About.class));
                 break;
-            case R.id.nav_profile:
-                goProfile();
+            case R.id.nav_contact:
+                Toast.makeText(this,"Contact",Toast.LENGTH_SHORT).show();
                 break;
         }
 
@@ -172,12 +172,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void navigationDrawer() {
-
-        //Hide or show item
-        Menu menu = navigationView.getMenu();
-        menu.findItem(R.id.nav_logout).setVisible(false);
-        menu.findItem(R.id.nav_profile).setVisible(false);
-
         navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.nav_home);

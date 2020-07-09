@@ -29,6 +29,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.covid_19.HelperClasses.CartHelperClass;
 import com.example.covid_19.HelperClasses.ProductAdapter;
 import com.example.covid_19.HelperClasses.ProductHelperClass;
 import com.example.covid_19.utils.CheckConnection;
@@ -51,6 +52,7 @@ public class Products extends AppCompatActivity implements NavigationView.OnNavi
     RecyclerView productRecycler;
     ViewFlipper viewFlipperAdverties;
     LinearLayout contentView;
+    ImageView imgshoppingcart;
 
     //Drawer Menu
     DrawerLayout drawerLayout;
@@ -63,6 +65,9 @@ public class Products extends AppCompatActivity implements NavigationView.OnNavi
     private static final String[] LOCATION_PERMS={
             Manifest.permission.ACCESS_FINE_LOCATION
     };
+
+    //cart
+    public static ArrayList<CartHelperClass> arraycart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,10 +87,20 @@ public class Products extends AppCompatActivity implements NavigationView.OnNavi
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 requestPermissions(LOCATION_PERMS, 1337);
             }
+            GoToCart();
         }else{
             CheckConnection.ShowToast_Short(getApplicationContext(), "You need to check the connection");
             finish();
         }
+    }
+
+    private void GoToCart() {
+        imgshoppingcart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), ShoppingCart.class));
+            }
+        });
     }
 
     private void GetProductData() {
@@ -146,6 +161,8 @@ public class Products extends AppCompatActivity implements NavigationView.OnNavi
     }
 
     private void Hooks() {
+        //menu
+        imgshoppingcart = findViewById(R.id.imageviewgotocart);
         //ViewFlipper
         viewFlipperAdverties = findViewById(R.id.viewFlipperAdverties);
         //Recycler
@@ -161,6 +178,12 @@ public class Products extends AppCompatActivity implements NavigationView.OnNavi
         productRecycler.setHasFixedSize(true);
         productRecycler.setLayoutManager(new GridLayoutManager(getApplicationContext(),2));
         productRecycler.setAdapter(productAdapter);
+        if (arraycart != null){
+
+        }
+        else{
+            arraycart = new ArrayList<>();
+        }
     }
 
     //Navigation Drawer function
@@ -179,14 +202,14 @@ public class Products extends AppCompatActivity implements NavigationView.OnNavi
             case R.id.nav_method:
                 goMethods();
                 break;
-            case R.id.nav_favourite_method:
+            case R.id.nav_new:
                 Toast.makeText(this,"Favourite Method",Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.nav_login:
-                goLogin();
+            case R.id.nav_about:
+                startActivity(new Intent(getApplicationContext(), About.class));
                 break;
-            case R.id.nav_profile:
-                goProfile();
+            case R.id.nav_contact:
+                Toast.makeText(this,"Contact",Toast.LENGTH_SHORT).show();
                 break;
         }
 
@@ -195,11 +218,6 @@ public class Products extends AppCompatActivity implements NavigationView.OnNavi
     }
 
     private void navigationDrawer() {
-        //Hide or show item
-        Menu menu = navigationView.getMenu();
-        menu.findItem(R.id.nav_logout).setVisible(false);
-        menu.findItem(R.id.nav_profile).setVisible(false);
-
         navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.nav_shopping);

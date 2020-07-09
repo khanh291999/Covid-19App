@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
             android:title="HOME"
-            android:icon="@drawable/ic_home" />
+            android:icon="@drawable/ic_home"/>
 
         <item
             android:id="@+id/nav_track"
@@ -23,34 +24,30 @@
             android:icon="@drawable/ic_local_hospital_black"/>
     </group>
 
-    <item android:title="Favourite">
+    <item android:title="Covid News">
         <menu>
             <group android:checkableBehavior="single">
                 <item
-                    android:id="@+id/nav_favourite_method"
-                    android:title="Favourite Method"
-                    android:icon="@drawable/ic_favorite" />
+                    android:id="@+id/nav_new"
+                    android:title="News "
+                    android:icon="@drawable/ic_baseline_library_books" />
             </group>
         </menu>
     </item>
 
-    <item android:title="Profile">
+    <item android:title="Other">
         <menu>
             <group android:checkableBehavior="single">
                 <item
-                    android:id="@+id/nav_login"
-                    android:title="Login"
-                    android:icon="@drawable/ic_login" />
+                    android:id="@+id/nav_about"
+                    android:title="About"
+                    android:icon="@drawable/ic_baseline_info" />
 
                 <item
-                    android:id="@+id/nav_profile"
-                    android:title="Profile"
-                    android:icon="@drawable/ic_person_black"/>
+                    android:id="@+id/nav_contact"
+                    android:title="Contact"
+                    android:icon="@drawable/ic_contact"/>
 
-                <item
-                    android:id="@+id/nav_logout"
-                    android:title="Logout"
-                    android:icon="@drawable/ic_logout"/>
             </group>
         </menu>
     </item>

@@ -71,14 +71,14 @@ public class Methods extends AppCompatActivity implements NavigationView.OnNavig
                 break;
             case R.id.nav_method:
                 break;
-            case R.id.nav_favourite_method:
+            case R.id.nav_new:
                 Toast.makeText(this,"Favourite Method",Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.nav_login:
-                goLogin();
+            case R.id.nav_about:
+                startActivity(new Intent(getApplicationContext(), About.class));
                 break;
-            case R.id.nav_profile:
-                goProfile();
+            case R.id.nav_contact:
+                Toast.makeText(this,"Contact",Toast.LENGTH_SHORT).show();
                 break;
         }
 
@@ -87,12 +87,6 @@ public class Methods extends AppCompatActivity implements NavigationView.OnNavig
     }
 
     private void navigationDrawer() {
-
-        //Hide or show item
-        Menu menu = navigationView.getMenu();
-        menu.findItem(R.id.nav_logout).setVisible(false);
-        menu.findItem(R.id.nav_profile).setVisible(false);
-
         navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.nav_method);

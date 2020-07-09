@@ -21,6 +21,7 @@
             android:src="@drawable/ic_keyboard_arrow_left_white" />
 
         <ImageView
+            android:id="@+id/imageviewgotocart"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="340dp"
