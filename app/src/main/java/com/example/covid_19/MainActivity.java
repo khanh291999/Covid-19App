@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(new Intent(getApplicationContext(), About.class));
                 break;
             case R.id.nav_contact:
-                Toast.makeText(this,"Contact",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(), Contact.class));
                 break;
         }
 
