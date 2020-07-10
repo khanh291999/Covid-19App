@@ -51,9 +51,10 @@ public class News extends AppCompatActivity {
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
 
         String country = Utils.getCountry();
+        String q = "covid";
 
         Call<NewsHelperClass> call;
-        call = apiInterface.getNew(country,API_KEY);
+        call = apiInterface.getNew(country,q,API_KEY);
 
         call.enqueue(new Callback<NewsHelperClass>() {
             @Override
@@ -71,7 +72,7 @@ public class News extends AppCompatActivity {
 
 
                 }else{
-                    Toast.makeText(News.this, "NoResult",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(News.this, "No Result",Toast.LENGTH_SHORT).show();
                 }
             }
 
