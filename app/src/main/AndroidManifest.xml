@@ -19,7 +19,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Contact"></activity>
+        <activity android:name=".SplashScreen"></activity>
+        <activity android:name=".Contact" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -53,7 +54,7 @@
         <activity android:name=".DetailActivity" />
         <activity android:name=".AffectedCountries" />
         <activity android:name=".Model.MethodDetail" />
-        <activity android:name=".SplashScreen">
+        <activity android:name=".News">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

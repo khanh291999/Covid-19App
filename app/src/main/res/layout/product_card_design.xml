@@ -16,12 +16,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_gravity="top|right"
-                android:layout_margin="10dp"
-                android:src="@drawable/new_icon" />
+<!--            <ImageView-->
+<!--                android:layout_width="60dp"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:layout_gravity="top|right"-->
+<!--                android:layout_margin="10dp"-->
+<!--                android:src="@drawable/new_icon" />-->
 
             <LinearLayout
                 android:layout_gravity="center"
