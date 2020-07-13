@@ -157,7 +157,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 goMethods();
                 break;
             case R.id.nav_new:
-                Toast.makeText(this,"News",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(), News.class));
                 break;
             case R.id.nav_about:
                 startActivity(new Intent(getApplicationContext(), About.class));

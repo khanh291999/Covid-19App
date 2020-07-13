@@ -72,7 +72,7 @@ public class Methods extends AppCompatActivity implements NavigationView.OnNavig
             case R.id.nav_method:
                 break;
             case R.id.nav_new:
-                Toast.makeText(this,"New",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(), News.class));
                 break;
             case R.id.nav_about:
                 startActivity(new Intent(getApplicationContext(), About.class));
