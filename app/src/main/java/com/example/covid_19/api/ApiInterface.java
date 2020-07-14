@@ -15,4 +15,14 @@ public interface ApiInterface {
             @Query("q") String q,
             @Query("apiKey") String apiKey
     );
+
+    @GET("everything")
+    Call<NewsHelperClass> getNewsSearch(
+
+            @Query("w") String keyword,
+            @Query("Language") String language,
+            @Query("sortBy") String sortBy,
+            @Query("apiKey") String apiKey
+
+    );
 }

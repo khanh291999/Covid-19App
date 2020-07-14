@@ -125,7 +125,7 @@ public class NewsApdapter extends RecyclerView.Adapter<NewsApdapter.MyViewHolder
 
         @Override
         public void onClick(View v) {
-            onItemClickListener.onItemClick(v, getAdapterPosition());
+            //onItemClickListener.onItemClick(v, getAdapterPosition());
         }
     }
 }

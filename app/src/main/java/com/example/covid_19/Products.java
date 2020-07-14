@@ -133,7 +133,6 @@ public class Products extends AppCompatActivity implements NavigationView.OnNavi
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
             }
         });
         requestQueue.add(jsonArrayRequest);

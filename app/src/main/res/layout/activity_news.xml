@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".News"
+    tools:menu="@menu/news_menu"
     android:background="@color/colorBackground">
+
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -15,6 +17,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+<!--            <RelativeLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="100dp"-->
+<!--                android:background="@drawable/contact1">-->
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/btngobackfromnews"-->
+<!--                    android:layout_width="40dp"-->
+<!--                    android:layout_height="40dp"-->
+<!--                    android:layout_marginTop="30dp"-->
+<!--                    android:layout_marginLeft="20dp"-->
+<!--                    android:src="@drawable/ic_chevron_left_black" />-->
+
+<!--            </RelativeLayout>-->
 
             <TextView
                 android:layout_width="match_parent"
