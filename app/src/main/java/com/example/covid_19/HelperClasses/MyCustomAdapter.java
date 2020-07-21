@@ -1,4 +1,4 @@
-package com.example.covid_19;
+package com.example.covid_19.HelperClasses;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.covid_19.Activities.AffectedCountries;
+import com.example.covid_19.HelperClasses.CountryModel;
+import com.example.covid_19.R;
 
 import java.util.ArrayList;
 import java.util.List;

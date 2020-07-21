@@ -1,4 +1,4 @@
-package com.example.covid_19;
+package com.example.covid_19.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +18,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.covid_19.HelperClasses.CountryModel;
+import com.example.covid_19.HelperClasses.MyCustomAdapter;
+import com.example.covid_19.R;
 import com.leo.simplearcloader.SimpleArcLoader;
 
 import org.json.JSONArray;
@@ -59,7 +62,7 @@ public class AffectedCountries extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                startActivity(new Intent(getApplicationContext(),DetailActivity.class).putExtra("position",position));
+                startActivity(new Intent(getApplicationContext(), DetailActivity.class).putExtra("position",position));
             }
         });
 

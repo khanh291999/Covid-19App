@@ -1,4 +1,4 @@
-package com.example.covid_19;
+package com.example.covid_19.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.covid_19.R;
 
 public class SplashScreen extends AppCompatActivity {
 

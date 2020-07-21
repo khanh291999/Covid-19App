@@ -1,4 +1,4 @@
-package com.example.covid_19;
+package com.example.covid_19.HelperClasses;
 
 public class CountryModel {
     private String flag,country,cases,todayCases,deaths,todayDeaths,recovered,active,critical;

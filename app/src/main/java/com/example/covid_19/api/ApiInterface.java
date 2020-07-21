@@ -12,14 +12,14 @@ public interface ApiInterface {
     Call<NewsHelperClass> getNew(
 
             @Query("country") String country,
-            @Query("q") String q,
+            @Query("q") String w,
             @Query("apiKey") String apiKey
     );
 
     @GET("everything")
     Call<NewsHelperClass> getNewsSearch(
 
-            @Query("w") String keyword,
+            @Query("q") String keyword,
             @Query("Language") String language,
             @Query("sortBy") String sortBy,
             @Query("apiKey") String apiKey

@@ -1,8 +1,7 @@
-package com.example.covid_19;
+package com.example.covid_19.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
@@ -18,6 +17,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.covid_19.Login;
+import com.example.covid_19.R;
+import com.example.covid_19.UserProfile;
 import com.google.android.material.navigation.NavigationView;
 
 import org.json.JSONException;

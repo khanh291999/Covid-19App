@@ -1,17 +1,12 @@
-package com.example.covid_19.Model;
+package com.example.covid_19.Activities;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -19,9 +14,6 @@ import android.widget.TextView;
 
 import com.example.covid_19.HelperClasses.MethodAdapter;
 import com.example.covid_19.HelperClasses.MethodHelperClass;
-import com.example.covid_19.HelperClasses.ProductAdapter;
-import com.example.covid_19.HelperClasses.ProductHelperClass;
-import com.example.covid_19.Methods;
 import com.example.covid_19.R;
 
 import java.util.ArrayList;

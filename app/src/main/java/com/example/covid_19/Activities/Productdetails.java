@@ -1,26 +1,20 @@
-package com.example.covid_19.Model;
+package com.example.covid_19.Activities;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.covid_19.HelperClasses.CartHelperClass;
 import com.example.covid_19.HelperClasses.ProductHelperClass;
-import com.example.covid_19.MainActivity;
-import com.example.covid_19.Products;
 import com.example.covid_19.R;
-import com.example.covid_19.ShoppingCart;
 import com.squareup.picasso.Picasso;
 
 import java.text.DecimalFormat;

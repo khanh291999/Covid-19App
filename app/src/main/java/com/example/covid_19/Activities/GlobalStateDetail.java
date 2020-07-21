@@ -1,4 +1,4 @@
-package com.example.covid_19;
+package com.example.covid_19.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,6 +15,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.covid_19.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;

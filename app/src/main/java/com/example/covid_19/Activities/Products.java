@@ -1,19 +1,15 @@
-package com.example.covid_19;
+package com.example.covid_19.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
@@ -32,6 +28,9 @@ import com.android.volley.toolbox.Volley;
 import com.example.covid_19.HelperClasses.CartHelperClass;
 import com.example.covid_19.HelperClasses.ProductAdapter;
 import com.example.covid_19.HelperClasses.ProductHelperClass;
+import com.example.covid_19.Login;
+import com.example.covid_19.R;
+import com.example.covid_19.UserProfile;
 import com.example.covid_19.utils.CheckConnection;
 import com.example.covid_19.utils.Server;
 import com.google.android.material.navigation.NavigationView;
@@ -62,9 +61,7 @@ public class Products extends AppCompatActivity implements NavigationView.OnNavi
     //new
     ArrayList<ProductHelperClass> productarray;
     ProductAdapter productAdapter;
-    private static final String[] LOCATION_PERMS={
-            Manifest.permission.ACCESS_FINE_LOCATION
-    };
+
 
     //cart
     public static ArrayList<CartHelperClass> arraycart;
@@ -84,9 +81,6 @@ public class Products extends AppCompatActivity implements NavigationView.OnNavi
         if(CheckConnection.haveNetworkConnection(getApplicationContext())){
             ActionViewFlipper();
             GetProductData();
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                requestPermissions(LOCATION_PERMS, 1337);
-            }
             GoToCart();
         }else{
             CheckConnection.ShowToast_Short(getApplicationContext(), "You need to check the connection");

@@ -3,7 +3,6 @@ package com.example.covid_19;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActivityOptions;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -16,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.covid_19.Activities.MainActivity;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class Login extends AppCompatActivity {

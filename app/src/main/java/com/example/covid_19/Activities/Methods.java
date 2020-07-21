@@ -1,4 +1,4 @@
-package com.example.covid_19;
+package com.example.covid_19.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,16 +8,16 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
-import com.example.covid_19.Model.MethodDetail;
+import com.example.covid_19.Login;
+import com.example.covid_19.R;
+import com.example.covid_19.UserProfile;
 import com.google.android.material.navigation.NavigationView;
 
 public class Methods extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{

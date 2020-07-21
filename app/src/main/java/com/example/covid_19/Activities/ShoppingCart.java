@@ -1,9 +1,8 @@
-package com.example.covid_19;
+package com.example.covid_19.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -17,7 +16,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.covid_19.HelperClasses.CartAdapter;
-import com.example.covid_19.HelperClasses.CartHelperClass;
+import com.example.covid_19.R;
 import com.example.covid_19.utils.CheckConnection;
 
 import java.text.DecimalFormat;

@@ -1,4 +1,4 @@
-package com.example.covid_19;
+package com.example.covid_19.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+
+import com.example.covid_19.R;
 
 public class Contact extends AppCompatActivity {
 

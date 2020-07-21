@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.covid_19.Model.Productdetails;
+import com.example.covid_19.Activities.Productdetails;
 import com.example.covid_19.R;
 import com.example.covid_19.utils.CheckConnection;
 import com.squareup.picasso.Picasso;
