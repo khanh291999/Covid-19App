@@ -15,9 +15,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
-import com.example.covid_19.Login;
 import com.example.covid_19.R;
-import com.example.covid_19.UserProfile;
 import com.google.android.material.navigation.NavigationView;
 
 public class Methods extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -145,18 +143,6 @@ public class Methods extends AppCompatActivity implements NavigationView.OnNavig
 
     private void goTrackCountries() {
         Intent intent = new Intent(Methods.this, AffectedCountries.class);
-        startActivity(intent);
-        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_in_right);
-    }
-
-    private void goLogin() {
-        Intent intent = new Intent(Methods.this, Login.class);
-        startActivity(intent);
-        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_in_right);
-    }
-
-    private void goProfile() {
-        Intent intent = new Intent(Methods.this, UserProfile.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_left,R.anim.slide_in_right);
     }

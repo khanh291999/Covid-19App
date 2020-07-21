@@ -28,9 +28,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.covid_19.HelperClasses.CartHelperClass;
 import com.example.covid_19.HelperClasses.ProductAdapter;
 import com.example.covid_19.HelperClasses.ProductHelperClass;
-import com.example.covid_19.Login;
 import com.example.covid_19.R;
-import com.example.covid_19.UserProfile;
 import com.example.covid_19.utils.CheckConnection;
 import com.example.covid_19.utils.Server;
 import com.google.android.material.navigation.NavigationView;
@@ -268,16 +266,6 @@ public class Products extends AppCompatActivity implements NavigationView.OnNavi
 
     private void goHome() {
         Intent intent = new Intent(Products.this, MainActivity.class);
-        startActivity(intent);
-    }
-
-    private void goLogin() {
-        Intent intent = new Intent(Products.this, Login.class);
-        startActivity(intent);
-    }
-
-    private void goProfile() {
-        Intent intent = new Intent(Products.this, UserProfile.class);
         startActivity(intent);
     }
 

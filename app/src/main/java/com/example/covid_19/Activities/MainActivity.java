@@ -17,9 +17,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.covid_19.Login;
 import com.example.covid_19.R;
-import com.example.covid_19.UserProfile;
 import com.google.android.material.navigation.NavigationView;
 
 import org.json.JSONException;
@@ -232,18 +230,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void goTrackCountries() {
         Intent intent = new Intent(MainActivity.this, AffectedCountries.class);
-        startActivity(intent);
-        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_in_right);
-    }
-
-    private void goLogin() {
-        Intent intent = new Intent(MainActivity.this, Login.class);
-        startActivity(intent);
-        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_in_right);
-    }
-
-    private void goProfile() {
-        Intent intent = new Intent(MainActivity.this, UserProfile.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_left,R.anim.slide_in_right);
     }

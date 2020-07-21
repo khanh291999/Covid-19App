@@ -48,13 +48,8 @@
         <activity android:name=".Activities.GlobalStateDetail" />
         <activity android:name=".Activities.PreventionOne" />
         <activity android:name=".Activities.Methods" />
-        <activity android:name=".UserProfile" />
         <activity android:name=".Activities.Products" />
-        <activity android:name=".Login" />
         <activity android:name=".Activities.Productdetails" />
-        <activity android:name=".EditPasswordSuccessMessage" />
-        <activity android:name=".ForgetPassword" />
-        <activity android:name=".SignUp" />
         <activity android:name=".Activities.MainActivity" />
         <activity android:name=".Activities.DetailActivity" />
         <activity android:name=".Activities.AffectedCountries" />
