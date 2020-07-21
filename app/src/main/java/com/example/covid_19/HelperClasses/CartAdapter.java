@@ -1,6 +1,5 @@
 package com.example.covid_19.HelperClasses;
 
-import android.app.Notification;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,12 +9,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.recyclerview.widget.RecyclerView.ViewHolder;
-
-import com.example.covid_19.MainActivity;
-import com.example.covid_19.Products;
+import com.example.covid_19.Activities.Products;
 import com.example.covid_19.R;
-import com.example.covid_19.ShoppingCart;
+import com.example.covid_19.Activities.ShoppingCart;
 import com.squareup.picasso.Picasso;
 
 import java.text.DecimalFormat;

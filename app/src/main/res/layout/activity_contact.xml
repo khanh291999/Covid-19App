@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:background="@color/color_white"
     android:orientation="vertical"
-    tools:context=".Contact">
+    android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+    tools:context=".Activities.Contact">
 
     <RelativeLayout
         android:layout_width="match_parent"
